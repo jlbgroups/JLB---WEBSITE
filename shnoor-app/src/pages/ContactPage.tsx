@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle, ChevronDown } from 'lucide-react'
-import Button from '../components/Button'
+import { Mail, MapPin, Clock, Send, CheckCircle, ChevronDown } from 'lucide-react'
 import { fadeUp, slideInLeft, slideInRight } from '../utils/animations'
 
 const inquiryTypes = [

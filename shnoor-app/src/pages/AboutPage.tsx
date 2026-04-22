@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Target, Eye, CheckCircle, Globe2, Layers, Award, Users } from 'lucide-react'
+import { Target, Eye, CheckCircle, Globe2, Layers, Award } from 'lucide-react'
 import SectionHeader from '../components/SectionHeader'
 import Button from '../components/Button'
 import { fadeUp, slideInLeft, slideInRight } from '../utils/animations'

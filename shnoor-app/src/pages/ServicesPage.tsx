@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Cloud, Building2, Brain, Users, ShieldCheck, Network, HeartPulse, Package, Globe2, ArrowRight, CheckCircle } from 'lucide-react'
+import { Cloud, Building2, Brain, Users, ShieldCheck, Network, HeartPulse, Package, Globe2, CheckCircle } from 'lucide-react'
 import Button from '../components/Button'
 import { fadeUp, slideInLeft, slideInRight } from '../utils/animations'
 
