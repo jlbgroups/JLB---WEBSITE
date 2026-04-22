@@ -34,11 +34,9 @@ export default function Navbar() {
     >
       <div className="max-w-container mx-auto px-6 flex items-center justify-between h-16">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-lg bg-forest flex items-center justify-center">
-            <span className="text-white font-heading font-bold text-lg leading-none">S</span>
-          </div>
-          <div className="flex flex-col leading-none">
+        <Link to="/" className="flex items-center gap-2 group">
+          <img src="/shnoor-logo.jfif" alt="Shnoor Logo" className="h-10 w-auto object-contain" />
+          <div className="flex flex-col leading-tight">
             <span className="font-heading font-bold text-forest text-sm tracking-tight">SHNOOR</span>
             <span className="text-[10px] text-textSecondary tracking-widest uppercase">International</span>
           </div>
@@ -49,24 +47,32 @@ export default function Navbar() {
           <NavLink to="/" className={navLinkClass} end>Home</NavLink>
 
           {/* Services dropdown */}
-          <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
-            <button className="flex items-center gap-1 text-sm font-medium text-textPrimary hover:text-accent transition-colors">
-              Services <ChevronDown size={14} className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
+          <div className="relative group/dropdown">
+            <button 
+              className="flex items-center gap-1 text-sm font-medium text-textPrimary hover:text-accent transition-colors py-4"
+              onClick={() => setServicesOpen(!servicesOpen)}
+              onMouseEnter={() => setServicesOpen(true)}
+            >
+              IT Services <ChevronDown size={14} className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
             </button>
-            {servicesOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-border rounded-xl shadow-lg py-2 w-52 z-50">
-                {services.map(s => (
-                  <Link
-                    key={s.path}
-                    to={s.path}
-                    className="block px-4 py-2 text-sm text-textPrimary hover:text-accent hover:bg-bg transition-colors"
-                    onClick={() => setServicesOpen(false)}
-                  >
-                    {s.label}
-                  </Link>
-                ))}
-              </div>
-            )}
+            
+            <div 
+              className={`absolute top-full left-0 mt-0 bg-white border border-border rounded-xl shadow-lg py-2 w-56 z-50 transition-all duration-200 ${
+                servicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+              }`}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
+              {services.map(s => (
+                <Link
+                  key={s.path}
+                  to={s.path}
+                  className="block px-4 py-2 text-sm text-textPrimary hover:text-accent hover:bg-bg transition-colors"
+                  onClick={() => setServicesOpen(false)}
+                >
+                  {s.label}
+                </Link>
+              ))}
+            </div>
           </div>
 
           <NavLink to="/industries" className={navLinkClass}>Industries</NavLink>

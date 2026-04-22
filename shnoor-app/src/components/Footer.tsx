@@ -25,11 +25,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center">
-                <span className="text-white font-heading font-bold text-lg">S</span>
-              </div>
-              <div className="flex flex-col leading-none">
+            <div className="flex items-center gap-2 mb-4">
+              <img src="/shnoor-logo.jfif" alt="Shnoor Logo" className="h-10 w-auto object-contain filter invert" />
+              <div className="flex flex-col leading-tight">
                 <span className="font-heading font-bold text-white text-sm tracking-tight">SHNOOR</span>
                 <span className="text-[10px] text-white/50 tracking-widest uppercase">International</span>
               </div>
@@ -39,12 +37,20 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               <a href="https://linkedin.com" target="_blank" rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-white/10 hover:bg-accent transition-colors flex items-center justify-center">
-                <ExternalLink size={14} />
+                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-accent transition-colors flex items-center justify-center p-2"
+                aria-label="LinkedIn"
+              >
+                <svg viewBox="0 0 24 24" className="w-full h-full fill-current text-white">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-white/10 hover:bg-accent transition-colors flex items-center justify-center">
-                <ExternalLink size={14} />
+              <a href="https://x.com" target="_blank" rel="noreferrer"
+                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-accent transition-colors flex items-center justify-center p-2"
+                aria-label="X (Twitter)"
+              >
+                <svg viewBox="0 0 24 24" className="w-full h-full fill-current text-white">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
               </a>
             </div>
           </div>
