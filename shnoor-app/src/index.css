@@ -2,15 +2,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-forest: #1F3D2B;
+  --color-forest: #2C3E2D;
+  --color-forest-light: #3A5040;
   --color-sage: #6E8F7B;
-  --color-accent: #3FA26E;
-  --color-gold: #C8A96A;
-  --color-bg: #F7F8F6;
+  --color-accent: #3A7D44;
+  --color-gold: #C5A55A;
+  --color-bg: #FAF8F5;
+  --color-cream: #F5F0EA;
   --color-card: #FFFFFF;
-  --color-border: #E6E8E6;
+  --color-border: #E8E5DF;
+  --color-border-light: #F0EDE8;
   --color-textPrimary: #1A1A1A;
-  --color-textSecondary: #6B6F6C;
+  --color-textSecondary: #7A7A72;
 
   --font-heading: "Poppins", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -30,7 +33,7 @@
   }
 
   body {
-    background-color: #F7F8F6;
+    background-color: #FAF8F5;
     color: #1A1A1A;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
@@ -44,5 +47,66 @@
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.2;
+  }
+
+  ::selection {
+    background-color: #3A7D44;
+    color: #FFFFFF;
+  }
+}
+
+@layer utilities {
+  /* Dot grid background pattern */
+  .dot-grid {
+    background-image: radial-gradient(circle, #D6D3CC 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .dot-grid-light {
+    background-image: radial-gradient(circle, rgba(214, 211, 204, 0.5) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Warm gradient overlays */
+  .gradient-warm {
+    background: linear-gradient(135deg, #FAF8F5 0%, #F0EDE8 100%);
+  }
+
+  .gradient-forest {
+    background: linear-gradient(135deg, #2C3E2D 0%, #1A2B1C 100%);
+  }
+
+  /* Subtle card hover */
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.22, 0.03, 0.26, 1);
+  }
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Dashed border card style from reference */
+  .border-dashed-warm {
+    border: 1.5px dashed #E8E5DF;
+  }
+
+  /* Divider line */
+  .divider-warm {
+    border-color: #E8E5DF;
+  }
+
+  /* Smooth scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FAF8F5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D6D3CC;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #B8B5AE;
   }
 }
