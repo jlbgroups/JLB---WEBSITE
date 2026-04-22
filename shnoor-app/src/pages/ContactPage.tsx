@@ -4,22 +4,10 @@ import { Mail, Phone, MapPin, Clock, Send, CheckCircle, ChevronDown } from 'luci
 import Button from '../components/Button'
 import { fadeUp, slideInLeft, slideInRight } from '../utils/animations'
 
-const offices = [
-  { city: 'Dubai', country: 'UAE', image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&q=80&auto=format' },
-  { city: 'Doha', country: 'Qatar', image: 'https://images.unsplash.com/photo-1548972207-3b400e3e3d78?w=400&q=80&auto=format' },
-  { city: 'Muscat', country: 'Oman', image: 'https://images.unsplash.com/photo-1587547131116-a8c1a0e28282?w=400&q=80&auto=format' },
-  { city: 'Kuala Lumpur', country: 'Malaysia', image: 'https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=400&q=80&auto=format' },
-  { city: 'Mumbai', country: 'India', image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=400&q=80&auto=format' },
-]
-
 const inquiryTypes = [
-  'IT Solutions',
-  'AI & Data Intelligence',
-  'Cloud & Infrastructure',
-  'Staffing & Consulting',
-  'Trade & Logistics',
-  'Partnership Inquiry',
-  'General Question',
+  'Cloud Management', 'Enterprise Management', 'Data & AI', 'Consulting & Staffing',
+  'Background Verification', 'Network Management', 'Healthcare IT',
+  'Logistics Management', 'Export Management', 'Partnership Inquiry', 'General Question',
 ]
 
 export default function ContactPage() {
@@ -56,7 +44,9 @@ export default function ContactPage() {
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
             <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.2em] text-accent mb-4">Contact</span>
             <h1 className="font-heading font-bold text-forest text-[32px] md:text-[42px] tracking-tight leading-tight mb-4">Let's Connect</h1>
-            <p className="text-textSecondary text-[15px] max-w-md leading-relaxed">Have a question or need a solution? We'd love to hear from you.</p>
+            <p className="text-textSecondary text-[15px] max-w-md leading-relaxed">
+              Feel free to contact us with any questions or concerns. We appreciate your interest and look forward to hearing from you.
+            </p>
           </motion.div>
         </div>
       </section>
@@ -74,7 +64,7 @@ export default function ContactPage() {
                       <CheckCircle size={28} className="text-accent" />
                     </div>
                     <h3 className="font-heading font-semibold text-forest text-xl mb-2">Message Sent!</h3>
-                    <p className="text-textSecondary text-[14px]">Thank you. Our team will reach out shortly.</p>
+                    <p className="text-textSecondary text-[14px]">Thank you. Our team will reach out shortly from <strong>info@shnoor.com</strong>.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} noValidate className="space-y-5">
@@ -89,8 +79,7 @@ export default function ContactPage() {
                       <div>
                         <label className="block text-[13px] font-medium text-textPrimary mb-1.5">Last Name</label>
                         <input type="text" placeholder="Last Name" value={form.lastName}
-                          onChange={e => setForm({ ...form, lastName: e.target.value })}
-                          className={inputClass('lastName')} />
+                          onChange={e => setForm({ ...form, lastName: e.target.value })} className={inputClass('lastName')} />
                       </div>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -104,16 +93,14 @@ export default function ContactPage() {
                       <div>
                         <label className="block text-[13px] font-medium text-textPrimary mb-1.5">Company Name</label>
                         <input type="text" placeholder="Company Name" value={form.company}
-                          onChange={e => setForm({ ...form, company: e.target.value })}
-                          className={inputClass('company')} />
+                          onChange={e => setForm({ ...form, company: e.target.value })} className={inputClass('company')} />
                       </div>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
                         <label className="block text-[13px] font-medium text-textPrimary mb-1.5">Phone Number</label>
-                        <input type="tel" placeholder="+971 50 000 0000" value={form.phone}
-                          onChange={e => setForm({ ...form, phone: e.target.value })}
-                          className={inputClass('phone')} />
+                        <input type="tel" placeholder="+968 00 000 000" value={form.phone}
+                          onChange={e => setForm({ ...form, phone: e.target.value })} className={inputClass('phone')} />
                       </div>
                       <div>
                         <label className="block text-[13px] font-medium text-textPrimary mb-1.5">What do you need?</label>
@@ -129,14 +116,15 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <label className="block text-[13px] font-medium text-textPrimary mb-1.5">Your Message *</label>
-                      <textarea rows={4} placeholder="Tell us about your project..." value={form.message}
+                      <textarea rows={4} placeholder="Tell us about your project or enquiry..." value={form.message}
                         onChange={e => { setForm({ ...form, message: e.target.value }); setErrors({ ...errors, message: '' }) }}
                         className={`${inputClass('message')} resize-none`} />
                       {errors.message && <p className="mt-1 text-[11px] text-red-500">{errors.message}</p>}
                     </div>
-                    <Button type="submit" variant="accent" size="lg" className={`w-full justify-center ${loading ? 'opacity-70 pointer-events-none' : ''}`}>
+                    <button type="submit" disabled={loading}
+                      className={`w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-accent text-white font-semibold text-[14px] transition-all hover:bg-accent/90 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}>
                       {loading ? 'Sending...' : <><Send size={15} /> Send Message</>}
-                    </Button>
+                    </button>
                   </form>
                 )}
               </div>
@@ -148,66 +136,58 @@ export default function ContactPage() {
                 <h3 className="font-heading font-semibold text-forest text-[16px] mb-5">Contact Information</h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3 text-[13px]">
-                    <MapPin size={16} className="text-accent mt-0.5 shrink-0" />
-                    <div>
-                      <p className="font-medium text-textPrimary">Address</p>
-                      <p className="text-textSecondary">P&T Fortune Towers, Cluster G5, Business Bay, Dubai, UAE</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 text-[13px]">
-                    <Phone size={16} className="text-accent mt-0.5 shrink-0" />
-                    <div>
-                      <p className="font-medium text-textPrimary">Phone</p>
-                      <p className="text-textSecondary">+971 50 000 0000</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 text-[13px]">
                     <Mail size={16} className="text-accent mt-0.5 shrink-0" />
                     <div>
-                      <p className="font-medium text-textPrimary">Email</p>
-                      <p className="text-textSecondary">info@shnoor.com</p>
+                      <p className="font-medium text-textPrimary mb-0.5">Email</p>
+                      <a href="mailto:info@shnoor.com" className="text-textSecondary hover:text-accent transition-colors block">info@shnoor.com <span className="text-textSecondary/50">(General)</span></a>
+                      <a href="mailto:proc@shnoor.com" className="text-textSecondary hover:text-accent transition-colors block">proc@shnoor.com <span className="text-textSecondary/50">(Sales)</span></a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 text-[13px]">
+                    <MapPin size={16} className="text-accent mt-0.5 shrink-0" />
+                    <div>
+                      <p className="font-medium text-textPrimary mb-0.5">Address</p>
+                      <p className="text-textSecondary">10009 Mount Tabor Road, Odessa Missouri, United States</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 text-[13px]">
                     <Clock size={16} className="text-accent mt-0.5 shrink-0" />
                     <div>
-                      <p className="font-medium text-textPrimary">Business Hours</p>
-                      <p className="text-textSecondary">Mon – Fri: 9:00 AM – 6:00 PM</p>
+                      <p className="font-medium text-textPrimary mb-0.5">Business Hours</p>
+                      <p className="text-textSecondary">Monday – Friday: 10:00 – 19:00</p>
+                      <p className="text-textSecondary">Saturday – Sunday: Closed</p>
                     </div>
                   </div>
                 </div>
-                {/* Social */}
-                <div className="flex gap-2.5 mt-6 pt-5 border-t border-border">
-                  {['in', 'f', '𝕏', '📷'].map((s, i) => (
-                    <a key={i} href="#" className="w-9 h-9 rounded-lg bg-cream flex items-center justify-center text-forest text-[13px] font-bold hover:bg-accent/10 hover:text-accent transition-all">{s}</a>
+              </div>
+
+              {/* Markets Served */}
+              <div className="bg-white border border-border rounded-2xl p-6">
+                <h3 className="font-heading font-semibold text-forest text-[15px] mb-4">Markets We Serve</h3>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { flag: '🇮🇳', name: 'India' },
+                    { flag: '🇦🇪', name: 'UAE' },
+                    { flag: '🇧🇭', name: 'Bahrain' },
+                    { flag: '🇶🇦', name: 'Qatar' },
+                    { flag: '🇴🇲', name: 'Oman' },
+                    { flag: '🇲🇾', name: 'Malaysia' },
+                  ].map(m => (
+                    <span key={m.name} className="flex items-center gap-1.5 text-[13px] bg-cream border border-border rounded-full px-3 py-1.5 text-forest font-medium">
+                      {m.flag} {m.name}
+                    </span>
                   ))}
                 </div>
+                <p className="text-textSecondary text-[12px] mt-4">Headquartered in Muscat, Oman</p>
+              </div>
+
+              {/* Partnership CTA */}
+              <div className="bg-forest rounded-2xl p-6">
+                <h3 className="font-heading font-semibold text-white text-[15px] mb-2">Interested in Partnering?</h3>
+                <p className="text-white/55 text-[13px] mb-4">Reach out to explore collaboration opportunities with SHNOOR International.</p>
+                <a href="mailto:partners@shnoor.com" className="text-accent text-[13px] font-semibold hover:underline">partners@shnoor.com →</a>
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Global Offices */}
-      <section className="py-16 lg:py-20 px-6 bg-white border-t border-border">
-        <div className="max-w-container mx-auto">
-          <motion.div initial="hidden" whileInView="visible" variants={fadeUp} viewport={{ once: true }}>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent mb-3 text-center">Worldwide</p>
-            <h2 className="font-heading font-bold text-forest text-[28px] md:text-[34px] tracking-tight text-center mb-12">Our Global Offices</h2>
-          </motion.div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {offices.map((o, i) => (
-              <motion.div key={o.city} initial="hidden" whileInView="visible" variants={fadeUp} custom={i} viewport={{ once: true }}
-                className="group rounded-xl overflow-hidden border border-border card-hover">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img src={o.image} alt={o.city} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                </div>
-                <div className="p-3 text-center">
-                  <p className="font-heading font-semibold text-forest text-[14px]">{o.city}</p>
-                  <p className="text-textSecondary text-[11px]">{o.country}</p>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
 
 const quickLinks = [
   { label: 'Home', path: '/' },
@@ -11,11 +11,15 @@ const quickLinks = [
 ]
 
 const serviceLinks = [
-  { label: 'IT Solutions', path: '/services#it' },
-  { label: 'AI & Data Intelligence', path: '/services#ai' },
-  { label: 'Cloud & Infrastructure', path: '/services#cloud' },
-  { label: 'Staffing & Consulting', path: '/services#consulting' },
-  { label: 'Trade & Logistics', path: '/services#trade' },
+  { label: 'Cloud Management', path: '/services#cloud' },
+  { label: 'Enterprise Management', path: '/services#enterprise' },
+  { label: 'Data & AI', path: '/services#ai' },
+  { label: 'Consulting & Staffing', path: '/services#consulting' },
+  { label: 'Background Verification', path: '/services#bgv' },
+  { label: 'Network Management', path: '/services#network' },
+  { label: 'Healthcare IT', path: '/services#healthcare' },
+  { label: 'Logistics Management', path: '/services#logistics' },
+  { label: 'Export Management', path: '/services#export' },
 ]
 
 export default function Footer() {
@@ -26,14 +30,14 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5 mb-5">
-              <img src="/shnoor-logo.jfif" alt="Shnoor Logo" className="h-9 w-auto object-contain brightness-0 invert" />
+              <img src="/shnoor-logo.jfif" alt="Shnoor Logo" className="h-9 w-auto object-contain" style={{ mixBlendMode: 'screen' }} />
               <div className="flex flex-col leading-tight">
                 <span className="font-heading font-bold text-white text-[14px] tracking-tight">SHNOOR</span>
                 <span className="text-[9px] text-white/40 tracking-[0.15em] uppercase leading-none">International LLC</span>
               </div>
             </div>
             <p className="text-white/50 text-[13px] leading-relaxed mb-6">
-              Bridging IT innovation and global trade with precision, expertise, and a commitment to excellence across the Middle East and Asia.
+              SHNOOR INTERNATIONAL LLC specializes in IT Consulting & Staffing, Product Development, SAP Outsourcing, and Import & Export operations across India, UAE, Bahrain, Qatar, Oman & Malaysia.
             </p>
             <div className="flex gap-2.5">
               {/* LinkedIn */}
@@ -109,19 +113,15 @@ export default function Footer() {
             <ul className="space-y-3.5">
               <li className="flex items-start gap-2.5 text-[13px] text-white/60">
                 <MapPin size={14} className="mt-0.5 shrink-0 text-accent" />
-                <span>Dubai, United Arab Emirates</span>
-              </li>
-              <li className="flex items-start gap-2.5 text-[13px] text-white/60">
-                <MapPin size={14} className="mt-0.5 shrink-0 text-accent" />
-                <span>Manama, Bahrain</span>
-              </li>
-              <li className="flex items-center gap-2.5 text-[13px] text-white/60">
-                <Phone size={14} className="shrink-0 text-accent" />
-                <span>+971 50 000 0000</span>
+                <span>10009 Mount Tabor Road, Odessa Missouri, United States</span>
               </li>
               <li className="flex items-center gap-2.5 text-[13px] text-white/60">
                 <Mail size={14} className="shrink-0 text-accent" />
-                <span>info@shnoor.com</span>
+                <a href="mailto:info@shnoor.com" className="hover:text-accent transition-colors">info@shnoor.com</a>
+              </li>
+              <li className="flex items-center gap-2.5 text-[13px] text-white/60">
+                <Mail size={14} className="shrink-0 text-accent" />
+                <a href="mailto:proc@shnoor.com" className="hover:text-accent transition-colors">proc@shnoor.com <span className="text-white/30">(Sales)</span></a>
               </li>
             </ul>
           </div>
@@ -135,8 +135,8 @@ export default function Footer() {
             © {new Date().getFullYear()} Shnoor International LLC. All rights reserved.
           </p>
           <div className="flex gap-5">
-            <a href="#" className="text-white/30 hover:text-white/60 text-[12px] transition-colors">Privacy Policy</a>
-            <a href="#" className="text-white/30 hover:text-white/60 text-[12px] transition-colors">Terms of Service</a>
+            <a href="https://www.shnoor.com/privacy-policy" target="_blank" rel="noreferrer" className="text-white/30 hover:text-white/60 text-[12px] transition-colors">Privacy Policy</a>
+            <a href="https://www.shnoor.com/terms-and-conditions" target="_blank" rel="noreferrer" className="text-white/30 hover:text-white/60 text-[12px] transition-colors">Terms & Conditions</a>
           </div>
         </div>
       </div>

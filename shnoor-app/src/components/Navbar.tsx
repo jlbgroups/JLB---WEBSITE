@@ -1,19 +1,26 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
 
 const services = [
-  { label: 'IT Solutions', path: '/services#it' },
-  { label: 'AI & Data Intelligence', path: '/services#ai' },
-  { label: 'Cloud & Infrastructure', path: '/services#cloud' },
-  { label: 'Staffing & Consulting', path: '/services#consulting' },
-  { label: 'Trade & Logistics', path: '/services#trade' },
+  { label: 'Cloud Management', path: '/services#cloud' },
+  { label: 'Enterprise Management', path: '/services#enterprise' },
+  { label: 'Data & Artificial Intelligence', path: '/services#ai' },
+  { label: 'Consulting & Staffing', path: '/services#consulting' },
+  { label: 'Background Verification', path: '/services#bgv' },
+  { label: 'Network Management', path: '/services#network' },
+  { label: 'Healthcare IT', path: '/services#healthcare' },
+  { label: 'Logistics Management', path: '/services#logistics' },
+  { label: 'Export Management', path: '/services#export' },
 ]
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  // Timeout ref to delay closing — prevents dropdown vanishing when cursor
+  // crosses the small gap between the trigger and the menu
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
@@ -21,7 +28,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close mobile menu on route change
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = 'hidden'
@@ -30,6 +36,15 @@ export default function Navbar() {
     }
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
+
+  // Immediately open, delay close by 120 ms so cursor can cross the gap
+  const handleMouseEnter = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    setServicesOpen(true)
+  }
+  const handleMouseLeave = () => {
+    closeTimer.current = setTimeout(() => setServicesOpen(false), 120)
+  }
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
     `relative text-[13px] font-medium tracking-wide transition-colors duration-200 ${
@@ -68,17 +83,19 @@ export default function Navbar() {
         <nav className="hidden lg:flex items-center gap-7">
           <NavLink to="/" className={navLinkClass} end>Home</NavLink>
 
-          {/* Services dropdown */}
+          {/* Services dropdown — uses delayed close to fix gap click problem */}
           <div
             className="relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <NavLink
               to="/services"
               className={({ isActive }) =>
-                `flex items-center gap-1 text-[13px] font-medium tracking-wide transition-colors duration-200 ${
-                  isActive ? 'text-forest' : 'text-textPrimary hover:text-accent'
+                `relative flex items-center gap-1 text-[13px] font-medium tracking-wide transition-colors duration-200 ${
+                  isActive
+                    ? 'text-forest after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-accent after:rounded-full'
+                    : 'text-textPrimary hover:text-accent'
                 }`
               }
             >
@@ -89,21 +106,25 @@ export default function Navbar() {
               />
             </NavLink>
 
+            {/* Invisible bridge: fills the gap between trigger and dropdown
+                so the mouse doesn't "leave" the hover zone while crossing */}
+            <div className="absolute top-full left-0 right-0 h-3" />
+
             <div
-              className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-border rounded-xl shadow-lg py-2 w-56 z-50 transition-all duration-200 ${
+              className={`absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 bg-white border border-border rounded-xl shadow-xl py-1.5 w-64 z-50 transition-all duration-150 ${
                 servicesOpen
                   ? 'opacity-100 visible translate-y-0'
-                  : 'opacity-0 invisible -translate-y-2 pointer-events-none'
+                  : 'opacity-0 invisible -translate-y-1 pointer-events-none'
               }`}
             >
               {services.map(s => (
                 <Link
                   key={s.path}
                   to={s.path}
-                  className="flex items-center gap-2 px-4 py-2.5 text-[13px] text-textPrimary hover:text-accent hover:bg-cream transition-colors"
+                  className="flex items-center gap-2.5 px-4 py-2.5 text-[13px] text-textPrimary hover:text-accent hover:bg-cream transition-colors rounded-lg mx-1"
                   onClick={() => setServicesOpen(false)}
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent/40" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent/40 shrink-0" />
                   {s.label}
                 </Link>
               ))}
