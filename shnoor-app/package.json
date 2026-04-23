@@ -37,5 +37,11 @@
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
     "vite": "^8.0.9"
+  },
+  "overrides": {
+    "react-simple-maps": {
+      "react": "^19.2.5",
+      "react-dom": "^19.2.5"
+    }
   }
 }
