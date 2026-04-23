@@ -36,6 +36,10 @@ export default function Button({ variant = 'primary', size = 'md', href, withArr
     </>
   )
   if (href) {
+    const isExternal = href.startsWith('http') || href.startsWith('mailto:')
+    if (isExternal) {
+      return <a href={href} target="_blank" rel="noreferrer" className={classes}>{content}</a>
+    }
     return <Link to={href} className={classes}>{content}</Link>
   }
   return (

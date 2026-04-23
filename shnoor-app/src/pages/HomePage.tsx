@@ -3,6 +3,7 @@ import { Cloud, Building2, Brain, Users, ShieldCheck, Network, HeartPulse, Packa
 import Button from '../components/Button'
 import SectionHeader from '../components/SectionHeader'
 import ServiceCard from '../components/ServiceCard'
+import GeoTradeMap from '../components/GeoTradeMap'
 import { fadeUp, slideInLeft, slideInRight } from '../utils/animations'
 
 const services = [
@@ -89,7 +90,7 @@ export default function HomePage() {
           </motion.div>
           <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.map((s, i) => (
-              <motion.div key={s.title} initial="hidden" whileInView="visible" variants={fadeUp} custom={i} viewport={{ once: true }}>
+              <motion.div key={s.title} initial="hidden" whileInView="visible" variants={fadeUp} custom={i} viewport={{ once: true }} className="h-full">
                 <ServiceCard {...s} />
               </motion.div>
             ))}
@@ -98,55 +99,37 @@ export default function HomePage() {
       </section>
 
       {/* Global Reach Banner */}
-      <section className="relative overflow-hidden bg-forest">
-        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+      <section className="relative overflow-hidden bg-[#0A1A11]">
+        {/* Subtle Grid Lines Overlay */}
+        <div className="absolute inset-0 opacity-[0.1]" style={{ backgroundImage: 'linear-gradient(#3FA26E 0.5px, transparent 0.5px), linear-gradient(90deg, #3FA26E 0.5px, transparent 0.5px)', backgroundSize: '40px 40px' }} />
+        
+        {/* Glow Effects */}
+        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-accent/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-forest/40 rounded-full blur-[120px] pointer-events-none" />
+
         <div className="relative z-10 max-w-container mx-auto px-6 py-16 lg:py-24">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             <motion.div initial="hidden" whileInView="visible" variants={slideInLeft} viewport={{ once: true }} className="w-full lg:w-[45%]">
               <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-accent mb-5">Our Presence</span>
               <h2 className="font-heading font-bold text-white text-[30px] md:text-[40px] lg:text-[44px] tracking-tight leading-[1.1] mb-5">
-                Global Reach.<br /><span className="text-accent">Local Expertise.</span>
+                Global Reach.<br /><span className="text-accent drop-shadow-[0_0_15px_rgba(63,162,110,0.4)]">Local Expertise.</span>
               </h2>
-              <p className="text-white/55 text-[15px] leading-relaxed mb-8 max-w-sm">
+              <p className="text-white/60 text-[15px] leading-relaxed mb-8 max-w-sm">
                 Headquartered in Muscat, Oman — operating across India, UAE, Bahrain, Qatar, Oman & Malaysia, building strong trade bridges and lasting partnerships worldwide.
               </p>
               <div className="grid grid-cols-3 gap-4 mb-8">
                 {[{ value: '6', label: 'Countries' }, { value: '100+', label: 'Clients' }, { value: 'Oman', label: 'HQ' }].map((s) => (
-                  <div key={s.label} className="border border-white/10 rounded-xl p-4 text-center bg-white/5">
+                  <div key={s.label} className="border border-white/10 rounded-xl p-4 text-center bg-white/5 backdrop-blur-sm transition-colors hover:bg-white/10 hover:border-white/20">
                     <span className="font-heading font-bold text-white text-[22px] leading-none block">{s.value}</span>
-                    <span className="text-white/40 text-[12px] mt-1 block">{s.label}</span>
+                    <span className="text-white/40 text-[12px] mt-1 block font-medium">{s.label}</span>
                   </div>
                 ))}
               </div>
-              <Button href="/about" variant="accent" withArrow>View Our Presence</Button>
+              <Button href="/about" variant="accent" withArrow className="shadow-[0_0_20px_rgba(63,162,110,0.3)]">View Our Presence</Button>
             </motion.div>
 
             <motion.div initial="hidden" whileInView="visible" variants={slideInRight} viewport={{ once: true }} className="w-full lg:w-[55%]">
-              <div className="relative rounded-2xl overflow-hidden border border-white/10">
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1000&q=85&auto=format" alt="Global reach world map" className="w-full h-[280px] md:h-[360px] object-cover opacity-30 mix-blend-luminosity" />
-                <div className="absolute inset-0 bg-gradient-to-br from-forest/60 via-transparent to-forest/40" />
-                {[
-                  { name: 'UAE', flag: '🇦🇪', x: '63%', y: '44%' },
-                  { name: 'Bahrain', flag: '🇧🇭', x: '60%', y: '48%' },
-                  { name: 'Qatar', flag: '🇶🇦', x: '62%', y: '51%' },
-                  { name: 'Oman', flag: '🇴🇲', x: '65%', y: '52%' },
-                  { name: 'India', flag: '🇮🇳', x: '71%', y: '52%' },
-                  { name: 'Malaysia', flag: '🇲🇾', x: '79%', y: '58%' },
-                ].map((loc, i) => (
-                  <div key={loc.name} className="absolute flex flex-col items-center" style={{ left: loc.x, top: loc.y, transform: 'translate(-50%, -50%)' }}>
-                    <div className="relative">
-                      <div className="w-3 h-3 rounded-full bg-accent z-10 relative shadow-lg shadow-accent/50" />
-                      <div className="absolute inset-0 w-3 h-3 rounded-full bg-accent/40 animate-ping" style={{ animationDelay: `${i * 0.3}s` }} />
-                    </div>
-                    <div className="mt-1.5 bg-white/95 backdrop-blur-sm rounded-lg px-2 py-0.5 shadow-lg whitespace-nowrap">
-                      <span className="text-[10px] font-semibold text-forest">{loc.flag} {loc.name}</span>
-                    </div>
-                  </div>
-                ))}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-forest/90 to-transparent px-5 py-4">
-                  <p className="text-white/60 text-[12px]">Headquartered in Muscat, Oman · Serving India, UAE, Bahrain, Qatar, Oman & Malaysia</p>
-                </div>
-              </div>
+              <GeoTradeMap />
             </motion.div>
           </div>
         </div>

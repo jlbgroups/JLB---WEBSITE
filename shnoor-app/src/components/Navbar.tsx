@@ -82,6 +82,7 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-7">
           <NavLink to="/" className={navLinkClass} end>Home</NavLink>
+          <NavLink to="/about" className={navLinkClass}>About Us</NavLink>
 
           {/* Services dropdown — uses delayed close to fix gap click problem */}
           <div
@@ -132,7 +133,6 @@ export default function Navbar() {
           </div>
 
           <NavLink to="/industries" className={navLinkClass}>Industries</NavLink>
-          <NavLink to="/about" className={navLinkClass}>About Us</NavLink>
           <NavLink to="/careers" className={navLinkClass}>Careers</NavLink>
           <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
         </nav>
@@ -168,9 +168,9 @@ export default function Navbar() {
         <div className="px-6 py-5 space-y-1">
           {[
             { to: '/', label: 'Home' },
+            { to: '/about', label: 'About Us' },
             { to: '/services', label: 'Services' },
             { to: '/industries', label: 'Industries' },
-            { to: '/about', label: 'About Us' },
             { to: '/careers', label: 'Careers' },
             { to: '/contact', label: 'Contact' },
           ].map(item => (
