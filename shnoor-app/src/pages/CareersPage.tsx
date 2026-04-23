@@ -1,16 +1,12 @@
 import { motion } from 'framer-motion'
-import { TrendingUp, Users, Zap, Globe2, ChevronDown, ChevronUp, MapPin, AlertTriangle } from 'lucide-react'
+import { ChevronDown, ChevronUp, MapPin, AlertTriangle } from 'lucide-react'
 import SectionHeader from '../components/SectionHeader'
 import Button from '../components/Button'
 import { useState } from 'react'
 import { fadeUp, slideInLeft, slideInRight } from '../utils/animations'
 
-const _benefits = [
-  { icon: <TrendingUp size={22} strokeWidth={1.5} />, title: 'Career Growth', desc: 'A company where your skills make a real difference — across technology and global trade.' },
-  { icon: <Users size={22} strokeWidth={1.5} />, title: 'Collaborative Culture', desc: 'Passionate, diverse, and forward-thinking team that believes in pushing boundaries.' },
-  { icon: <Zap size={22} strokeWidth={1.5} />, title: 'Impactful Work', desc: 'From IT Consulting to international export — your work spans industries, regions, and technologies.' },
-  { icon: <Globe2 size={22} strokeWidth={1.5} />, title: 'Global Exposure', desc: 'Work with clients and partners across India, UAE, Bahrain, Qatar, Oman & Malaysia.' },
-]
+
+
 
 const openings = [
   { 
