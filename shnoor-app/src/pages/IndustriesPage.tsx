@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Cloud, Building2, Users, HeartPulse, Package, Globe2, ArrowRight } from 'lucide-react'
+import { Cloud, Building2, Users, HeartPulse, Package, Globe2 } from 'lucide-react'
 import Button from '../components/Button'
 import { fadeUp } from '../utils/animations'
 

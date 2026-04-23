@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { fadeUp } from '../utils/animations'
-import SectionHeader from '../components/SectionHeader'
 
 export default function PrivacyPolicyPage() {
   const sections = [
