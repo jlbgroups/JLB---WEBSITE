@@ -5,14 +5,6 @@ import { fadeUp } from '../utils/animations'
 
 const industries = [
   {
-    icon: <HeartPulse size={22} strokeWidth={1.5} />,
-    title: 'Healthcare',
-    tag: 'Healthcare IT',
-    description: 'We leverage advanced healthcare software combined with data intelligence and AI to help healthcare providers streamline operations, enhance patient care, and improve clinical outcomes. Our systems utilize secure data management, predictive analytics, and intelligent automation.',
-    highlights: ['Healthcare Management Systems', 'Secure Data & Compliance Solutions', 'Analytics & Decision Support Tools', 'HIPAA-Compliant Infrastructure'],
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80&auto=format',
-  },
-  {
     icon: <Package size={22} strokeWidth={1.5} />,
     title: 'Logistics & Supply Chain',
     tag: 'Logistics Management',
@@ -52,6 +44,14 @@ const industries = [
     highlights: ['IT & Technology Consulting', 'Temporary & Permanent Staffing', 'Talent Acquisition & Workforce Management', 'Project-Based Staffing Solutions'],
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80&auto=format',
   },
+  {
+    icon: <HeartPulse size={22} strokeWidth={1.5} />,
+    title: 'Healthcare',
+    tag: 'Healthcare IT',
+    description: 'We leverage advanced healthcare software combined with data intelligence and AI to help healthcare providers streamline operations, enhance patient care, and improve clinical outcomes. Our systems utilize secure data management, predictive analytics, and intelligent automation.',
+    highlights: ['Healthcare Management Systems', 'Secure Data & Compliance Solutions', 'Analytics & Decision Support Tools', 'HIPAA-Compliant Infrastructure'],
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80&auto=format',
+  },
 ]
 
 export default function IndustriesPage() {
@@ -80,30 +80,27 @@ export default function IndustriesPage() {
               key={ind.title}
               initial="hidden" whileInView="visible" variants={fadeUp} custom={i * 0.2}
               viewport={{ once: true }}
-              className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} bg-white border border-border rounded-2xl overflow-hidden card-hover`}
+              className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} md:min-h-[380px] bg-white border border-border rounded-2xl overflow-hidden card-hover`}
             >
               {/* Image */}
-              <div className="w-full md:w-2/5 shrink-0">
-                <img src={ind.image} alt={ind.title} className="w-full h-56 md:h-full object-cover" loading="lazy" />
+              <div className="w-full md:w-2/5 shrink-0 h-56 md:h-auto">
+                <img src={ind.image} alt={ind.title} className="w-full h-full object-cover" loading="lazy" />
               </div>
               {/* Content */}
-              <div className="w-full md:w-3/5 p-7 md:p-9">
+              <div className="w-full md:w-3/5 p-7 md:p-9 flex flex-col justify-center">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-xl bg-cream flex items-center justify-center text-forest">{ind.icon}</div>
                   <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">{ind.tag}</span>
                 </div>
                 <h2 className="font-heading font-bold text-forest text-[22px] tracking-tight mb-3">{ind.title}</h2>
                 <p className="text-textSecondary text-[14px] leading-relaxed mb-5">{ind.description}</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {ind.highlights.map(h => (
                     <div key={h} className="flex items-center gap-2 text-[13px] text-textPrimary">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />{h}
                     </div>
                   ))}
                 </div>
-                <button className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-forest hover:text-accent transition-colors">
-                  Learn more <ArrowRight size={13} />
-                </button>
               </div>
             </motion.div>
           ))}

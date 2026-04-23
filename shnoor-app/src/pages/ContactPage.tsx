@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, MapPin, Clock, Send, CheckCircle, ChevronDown } from 'lucide-react'
+import { Mail, MapPin, Clock, Send, CheckCircle, ChevronDown, AlertCircle } from 'lucide-react'
 import { fadeUp, slideInLeft, slideInRight } from '../utils/animations'
+import emailjs from '@emailjs/browser'
 
 const inquiryTypes = [
   'Cloud Management', 'Enterprise Management', 'Data & AI', 'Consulting & Staffing',
@@ -14,6 +15,7 @@ export default function ContactPage() {
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [serverError, setServerError] = useState('')
 
   function validate() {
     const e: Record<string, string> = {}
@@ -24,12 +26,40 @@ export default function ContactPage() {
     return e
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     const errs = validate()
     if (Object.keys(errs).length > 0) { setErrors(errs); return }
+    
     setLoading(true)
-    setTimeout(() => { setLoading(false); setSubmitted(true) }, 1500)
+    setServerError('')
+
+    const templateParams = {
+      from_name: `${form.firstName} ${form.lastName}`,
+      first_name: form.firstName,
+      last_name: form.lastName,
+      email: form.email,
+      company: form.company,
+      phone: form.phone,
+      inquiry_type: form.inquiryType,
+      message: form.message,
+      to_name: 'Shnoor International Support'
+    }
+
+    try {
+      await emailjs.send(
+        'service_sjuekow', 
+        'template_soddjzy', 
+        templateParams, 
+        'cg99TKJrwPm_Qp0qv'
+      )
+      setSubmitted(true)
+    } catch (err) {
+      console.error('EmailJS Error:', err)
+      setServerError('Something went wrong. Please try again or email us directly at info@shnoor.com.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const inputClass = (field: string) =>
@@ -120,6 +150,12 @@ export default function ContactPage() {
                         className={`${inputClass('message')} resize-none`} />
                       {errors.message && <p className="mt-1 text-[11px] text-red-500">{errors.message}</p>}
                     </div>
+                    {serverError && (
+                      <div className="p-3 bg-red-50 border border-red-100 rounded-lg flex items-center gap-3 text-red-600 text-[13px]">
+                        <AlertCircle size={16} />
+                        {serverError}
+                      </div>
+                    )}
                     <button type="submit" disabled={loading}
                       className={`w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-accent text-white font-semibold text-[14px] transition-all hover:bg-accent/90 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}>
                       {loading ? 'Sending...' : <><Send size={15} /> Send Message</>}

@@ -9,8 +9,11 @@ import AboutPage from './pages/AboutPage'
 import IndustriesPage from './pages/IndustriesPage'
 import CareersPage from './pages/CareersPage'
 import ContactPage from './pages/ContactPage'
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
+import TermsPage from './pages/TermsPage'
+import RecruitmentScamsPage from './pages/RecruitmentScamsPage'
 import NotFoundPage from './pages/NotFoundPage'
-
+    
 function ScrollToTop() {
   const { pathname } = useLocation()
   useEffect(() => { window.scrollTo(0, 0) }, [pathname])
@@ -29,6 +32,9 @@ function AppRoutes() {
         <Route path="/industries"  element={<IndustriesPage />} />
         <Route path="/careers"     element={<CareersPage />} />
         <Route path="/contact"     element={<ContactPage />} />
+        <Route path="/privacy"     element={<PrivacyPolicyPage />} />
+        <Route path="/terms"       element={<TermsPage />} />
+        <Route path="/recruitment-scams" element={<RecruitmentScamsPage />} />
         <Route path="*"            element={<NotFoundPage />} />
       </Routes>
       <Footer />

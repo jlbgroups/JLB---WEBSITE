@@ -123,9 +123,14 @@ export default function ServicesPage() {
             <h1 className="font-heading font-bold text-forest text-[32px] md:text-[42px] tracking-tight leading-tight max-w-2xl mb-4">
               Integrated Solutions for Technology & Global Trade
             </h1>
-            <p className="text-textSecondary text-[15px] max-w-xl leading-relaxed">
-              From cloud infrastructure and AI to logistics and export management — everything your business needs to grow, under one roof.
-            </p>
+            <div className="space-y-4 max-w-2xl">
+              <p className="text-textSecondary text-[15px] leading-relaxed">
+                We provide end-to-end solutions to help businesses scale and succeed in a global market. From secure cloud infrastructure and AI-driven systems to efficient logistics and export management, we bring everything together under one roof.
+              </p>
+              <p className="text-textSecondary text-[15px] leading-relaxed">
+                Our integrated approach simplifies operations, enhances efficiency, and ensures seamless global reach — whether you're building your digital foundation or expanding internationally.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
