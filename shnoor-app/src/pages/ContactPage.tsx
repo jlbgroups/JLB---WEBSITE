@@ -1,39 +1,26 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react'
-import SectionHeader from '../components/SectionHeader'
-import Button from '../components/Button'
-import { fadeUp } from '../utils/animations'
+import { Mail, MapPin, Clock, Send, CheckCircle, ChevronDown } from 'lucide-react'
+import { fadeUp, slideInLeft, slideInRight } from '../utils/animations'
 
-const offices = [
-  {
-    city: 'Dubai',
-    country: 'United Arab Emirates',
-    address: 'Business Bay, Dubai, UAE',
-    phone: '+971 50 000 0000',
-    email: 'uae@shnoor.com',
-  },
-  {
-    city: 'Manama',
-    country: 'Bahrain',
-    address: 'Diplomatic Area, Manama, Bahrain',
-    phone: '+973 1600 0000',
-    email: 'bahrain@shnoor.com',
-  },
+const inquiryTypes = [
+  'Cloud Management', 'Enterprise Management', 'Data & AI', 'Consulting & Staffing',
+  'Background Verification', 'Network Management', 'Healthcare IT',
+  'Logistics Management', 'Export Management', 'Partnership Inquiry', 'General Question',
 ]
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ name: '', email: '', company: '', message: '' })
+  const [form, setForm] = useState({ firstName: '', lastName: '', email: '', company: '', phone: '', inquiryType: '', message: '' })
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
 
   function validate() {
     const e: Record<string, string> = {}
-    if (!form.name.trim()) e.name = 'Name is required'
-    if (!form.email.trim()) e.email = 'Email is required'
+    if (!form.firstName.trim()) e.firstName = 'Required'
+    if (!form.email.trim()) e.email = 'Required'
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Invalid email'
-    if (!form.message.trim()) e.message = 'Message is required'
+    if (!form.message.trim()) e.message = 'Required'
     return e
   }
 
@@ -42,171 +29,163 @@ export default function ContactPage() {
     const errs = validate()
     if (Object.keys(errs).length > 0) { setErrors(errs); return }
     setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-      setSubmitted(true)
-    }, 1500)
+    setTimeout(() => { setLoading(false); setSubmitted(true) }, 1500)
   }
 
   const inputClass = (field: string) =>
-    `w-full px-4 py-3 bg-white border rounded-lg text-sm text-textPrimary placeholder:text-textSecondary/60 focus:outline-none focus:ring-2 focus:ring-accent/40 transition-all ${errors[field] ? 'border-red-400' : 'border-border'}`
+    `w-full px-4 py-3 bg-white border rounded-lg text-[14px] text-textPrimary placeholder:text-textSecondary/50 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/40 transition-all ${errors[field] ? 'border-red-400' : 'border-border'}`
 
   return (
-    <main className="bg-bg pt-16">
-      {/* Hero */}
-      <section className="py-20 px-6 bg-white border-b border-border">
-        <div className="max-w-container mx-auto text-center">
+    <main className="bg-bg pt-[68px]">
+      {/* Header */}
+      <section className="py-16 lg:py-20 px-6 border-b border-border">
+        <div className="max-w-container mx-auto">
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
-            <SectionHeader
-              label="Contact Us"
-              title="Let's Start a Conversation"
-              subtitle="Whether you're ready to begin a project or just exploring options — we're here to help you find the right path."
-            />
+            <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.2em] text-accent mb-4">Contact</span>
+            <h1 className="font-heading font-bold text-forest text-[32px] md:text-[42px] tracking-tight leading-tight mb-4">Let's Connect</h1>
+            <p className="text-textSecondary text-[15px] max-w-md leading-relaxed">
+              Feel free to contact us with any questions or concerns. We appreciate your interest and look forward to hearing from you.
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Main content */}
-      <section className="py-20 px-6">
+      {/* Form + Contact Info */}
+      <section className="py-16 lg:py-20 px-6">
         <div className="max-w-container mx-auto">
-          <div className="flex flex-col lg:flex-row gap-12">
-            {/* Contact form */}
-            <motion.div
-              initial="hidden" whileInView="visible" variants={fadeUp}
-              viewport={{ once: true }}
-              className="w-full lg:w-3/5"
-            >
-              <div className="bg-card border border-border rounded-2xl p-8">
-                <h2 className="font-heading font-bold text-forest text-2xl tracking-tight mb-1">Send Us a Message</h2>
-                <p className="text-textSecondary text-sm mb-6">We typically respond within 1 business day.</p>
-
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-14">
+            {/* Form */}
+            <motion.div initial="hidden" whileInView="visible" variants={slideInLeft} viewport={{ once: true }} className="w-full lg:w-3/5">
+              <div className="bg-white border border-border rounded-2xl p-7 md:p-9">
                 {submitted ? (
-                  <div className="text-center py-12">
+                  <div className="text-center py-14">
                     <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
                       <CheckCircle size={28} className="text-accent" />
                     </div>
                     <h3 className="font-heading font-semibold text-forest text-xl mb-2">Message Sent!</h3>
-                    <p className="text-textSecondary text-sm">Thank you, {form.name}. Our team will reach out to you at {form.email} shortly.</p>
+                    <p className="text-textSecondary text-[14px]">Thank you. Our team will reach out shortly from <strong>info@shnoor.com</strong>.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} noValidate className="space-y-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="block text-sm font-medium text-textPrimary mb-1.5">Full Name *</label>
-                        <input
-                          id="contact-name"
-                          type="text"
-                          placeholder="Ahmed Al-Rashidi"
-                          value={form.name}
-                          onChange={e => { setForm({ ...form, name: e.target.value }); setErrors({ ...errors, name: '' }) }}
-                          className={inputClass('name')}
-                        />
-                        {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
+                        <label className="block text-[13px] font-medium text-textPrimary mb-1.5">First Name *</label>
+                        <input type="text" placeholder="First Name" value={form.firstName}
+                          onChange={e => { setForm({ ...form, firstName: e.target.value }); setErrors({ ...errors, firstName: '' }) }}
+                          className={inputClass('firstName')} />
+                        {errors.firstName && <p className="mt-1 text-[11px] text-red-500">{errors.firstName}</p>}
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-textPrimary mb-1.5">Email Address *</label>
-                        <input
-                          id="contact-email"
-                          type="email"
-                          placeholder="ahmed@company.com"
-                          value={form.email}
-                          onChange={e => { setForm({ ...form, email: e.target.value }); setErrors({ ...errors, email: '' }) }}
-                          className={inputClass('email')}
-                        />
-                        {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
+                        <label className="block text-[13px] font-medium text-textPrimary mb-1.5">Last Name</label>
+                        <input type="text" placeholder="Last Name" value={form.lastName}
+                          onChange={e => setForm({ ...form, lastName: e.target.value })} className={inputClass('lastName')} />
                       </div>
                     </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-textPrimary mb-1.5">Company Name</label>
-                      <input
-                        id="contact-company"
-                        type="text"
-                        placeholder="Your company (optional)"
-                        value={form.company}
-                        onChange={e => setForm({ ...form, company: e.target.value })}
-                        className={inputClass('company')}
-                      />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-[13px] font-medium text-textPrimary mb-1.5">Email Address *</label>
+                        <input type="email" placeholder="email@company.com" value={form.email}
+                          onChange={e => { setForm({ ...form, email: e.target.value }); setErrors({ ...errors, email: '' }) }}
+                          className={inputClass('email')} />
+                        {errors.email && <p className="mt-1 text-[11px] text-red-500">{errors.email}</p>}
+                      </div>
+                      <div>
+                        <label className="block text-[13px] font-medium text-textPrimary mb-1.5">Company Name</label>
+                        <input type="text" placeholder="Company Name" value={form.company}
+                          onChange={e => setForm({ ...form, company: e.target.value })} className={inputClass('company')} />
+                      </div>
                     </div>
-
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-[13px] font-medium text-textPrimary mb-1.5">Phone Number</label>
+                        <input type="tel" placeholder="+968 00 000 000" value={form.phone}
+                          onChange={e => setForm({ ...form, phone: e.target.value })} className={inputClass('phone')} />
+                      </div>
+                      <div>
+                        <label className="block text-[13px] font-medium text-textPrimary mb-1.5">What do you need?</label>
+                        <div className="relative">
+                          <select value={form.inquiryType} onChange={e => setForm({ ...form, inquiryType: e.target.value })}
+                            className={`${inputClass('inquiryType')} appearance-none cursor-pointer`}>
+                            <option value="">Select a service</option>
+                            {inquiryTypes.map(t => <option key={t} value={t}>{t}</option>)}
+                          </select>
+                          <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-textSecondary pointer-events-none" />
+                        </div>
+                      </div>
+                    </div>
                     <div>
-                      <label className="block text-sm font-medium text-textPrimary mb-1.5">Message *</label>
-                      <textarea
-                        id="contact-message"
-                        rows={5}
-                        placeholder="Tell us about your project, challenge, or question..."
-                        value={form.message}
+                      <label className="block text-[13px] font-medium text-textPrimary mb-1.5">Your Message *</label>
+                      <textarea rows={4} placeholder="Tell us about your project or enquiry..." value={form.message}
                         onChange={e => { setForm({ ...form, message: e.target.value }); setErrors({ ...errors, message: '' }) }}
-                        className={`${inputClass('message')} resize-none`}
-                      />
-                      {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message}</p>}
+                        className={`${inputClass('message')} resize-none`} />
+                      {errors.message && <p className="mt-1 text-[11px] text-red-500">{errors.message}</p>}
                     </div>
-
-                    <Button type="submit" variant="primary" size="lg" className={`w-full justify-center ${loading ? 'opacity-70 pointer-events-none' : ''}`}>
-                      {loading ? 'Sending...' : <><Send size={16} /> Send Message</>}
-                    </Button>
+                    <button type="submit" disabled={loading}
+                      className={`w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-accent text-white font-semibold text-[14px] transition-all hover:bg-accent/90 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}>
+                      {loading ? 'Sending...' : <><Send size={15} /> Send Message</>}
+                    </button>
                   </form>
                 )}
               </div>
             </motion.div>
 
-            {/* Office info */}
-            <motion.div
-              initial="hidden" whileInView="visible" variants={fadeUp} custom={1}
-              viewport={{ once: true }}
-              className="w-full lg:w-2/5 space-y-6"
-            >
-              {offices.map(office => (
-                <div key={office.city} className="bg-card border border-border rounded-2xl p-6">
-                  <h3 className="font-heading font-semibold text-forest text-xl tracking-tight mb-1">{office.city}</h3>
-                  <p className="text-textSecondary text-sm mb-4">{office.country}</p>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-2.5 text-sm text-textSecondary">
-                      <MapPin size={15} className="text-accent mt-0.5 shrink-0" />
-                      {office.address}
+            {/* Contact Info */}
+            <motion.div initial="hidden" whileInView="visible" variants={slideInRight} viewport={{ once: true }} className="w-full lg:w-2/5 space-y-5">
+              <div className="bg-white border border-border rounded-2xl p-6">
+                <h3 className="font-heading font-semibold text-forest text-[16px] mb-5">Contact Information</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3 text-[13px]">
+                    <Mail size={16} className="text-accent mt-0.5 shrink-0" />
+                    <div>
+                      <p className="font-medium text-textPrimary mb-0.5">Email</p>
+                      <a href="mailto:info@shnoor.com" className="text-textSecondary hover:text-accent transition-colors block">info@shnoor.com <span className="text-textSecondary/50">(General)</span></a>
+                      <a href="mailto:proc@shnoor.com" className="text-textSecondary hover:text-accent transition-colors block">proc@shnoor.com <span className="text-textSecondary/50">(Sales)</span></a>
                     </div>
-                    <div className="flex items-center gap-2.5 text-sm text-textSecondary">
-                      <Phone size={15} className="text-accent shrink-0" />
-                      {office.phone}
+                  </div>
+                  <div className="flex items-start gap-3 text-[13px]">
+                    <MapPin size={16} className="text-accent mt-0.5 shrink-0" />
+                    <div>
+                      <p className="font-medium text-textPrimary mb-0.5">Address</p>
+                      <p className="text-textSecondary">10009 Mount Tabor Road, Odessa Missouri, United States</p>
                     </div>
-                    <div className="flex items-center gap-2.5 text-sm text-textSecondary">
-                      <Mail size={15} className="text-accent shrink-0" />
-                      {office.email}
+                  </div>
+                  <div className="flex items-start gap-3 text-[13px]">
+                    <Clock size={16} className="text-accent mt-0.5 shrink-0" />
+                    <div>
+                      <p className="font-medium text-textPrimary mb-0.5">Business Hours</p>
+                      <p className="text-textSecondary">Monday – Friday: 10:00 – 19:00</p>
+                      <p className="text-textSecondary">Saturday – Sunday: Closed</p>
                     </div>
                   </div>
                 </div>
-              ))}
-
-              {/* Map placeholder */}
-              <div className="bg-card border border-border rounded-2xl overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&q=70&auto=format"
-                  alt="Dubai skyline"
-                  className="w-full h-40 object-cover"
-                />
-                <div className="p-4">
-                  <p className="text-textSecondary text-xs leading-relaxed">
-                    Our headquarters is located in Business Bay, Dubai — the heart of the UAE's business district.
-                  </p>
-                </div>
               </div>
 
-              {/* WhatsApp CTA */}
-              <a
-                href="https://wa.me/971500000000"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 bg-[#25D366] text-white rounded-2xl px-5 py-4 hover:bg-[#20b557] transition-colors"
-              >
-                <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current shrink-0" aria-hidden>
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.855L.057 23.99l6.305-1.654A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.879 9.879 0 01-5.031-1.372l-.361-.214-3.741.981.998-3.648-.235-.374A9.861 9.861 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106S21.894 6.58 21.894 12 17.42 21.894 12 21.894z" />
-                </svg>
-                <div>
-                  <p className="text-sm font-semibold">Chat on WhatsApp</p>
-                  <p className="text-xs text-white/80">Usually responds within hours</p>
+              {/* Markets Served */}
+              <div className="bg-white border border-border rounded-2xl p-6">
+                <h3 className="font-heading font-semibold text-forest text-[15px] mb-4">Markets We Serve</h3>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { flag: '🇮🇳', name: 'India' },
+                    { flag: '🇦🇪', name: 'UAE' },
+                    { flag: '🇧🇭', name: 'Bahrain' },
+                    { flag: '🇶🇦', name: 'Qatar' },
+                    { flag: '🇴🇲', name: 'Oman' },
+                    { flag: '🇲🇾', name: 'Malaysia' },
+                  ].map(m => (
+                    <span key={m.name} className="flex items-center gap-1.5 text-[13px] bg-cream border border-border rounded-full px-3 py-1.5 text-forest font-medium">
+                      {m.flag} {m.name}
+                    </span>
+                  ))}
                 </div>
-              </a>
+                <p className="text-textSecondary text-[12px] mt-4">Headquartered in Muscat, Oman</p>
+              </div>
+
+              {/* Partnership CTA */}
+              <div className="bg-forest rounded-2xl p-6">
+                <h3 className="font-heading font-semibold text-white text-[15px] mb-2">Interested in Partnering?</h3>
+                <p className="text-white/55 text-[13px] mb-4">Reach out to explore collaboration opportunities with SHNOOR International.</p>
+                <a href="mailto:partners@shnoor.com" className="text-accent text-[13px] font-semibold hover:underline">partners@shnoor.com →</a>
+              </div>
             </motion.div>
           </div>
         </div>

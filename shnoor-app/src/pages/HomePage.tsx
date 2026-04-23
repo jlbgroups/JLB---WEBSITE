@@ -1,313 +1,184 @@
 import { motion } from 'framer-motion'
-import {
-  Server, Brain, Cloud, Users, Package,
-  ArrowRight, Globe, Award, TrendingUp, CheckCircle
-} from 'lucide-react'
+import { Cloud, Building2, Brain, Users, ShieldCheck, Network, HeartPulse, Package, Globe2 } from 'lucide-react'
 import Button from '../components/Button'
 import SectionHeader from '../components/SectionHeader'
 import ServiceCard from '../components/ServiceCard'
-import { fadeUp } from '../utils/animations'
-
-const stats = [
-  { value: '100+', label: 'Global Clients', icon: <Users size={20} /> },
-  { value: '10+', label: 'Years of Excellence', icon: <Award size={20} /> },
-  { value: '5', label: 'Countries Served', icon: <Globe size={20} /> },
-  { value: '50+', label: 'Projects Delivered', icon: <TrendingUp size={20} /> },
-]
+import { fadeUp, slideInLeft, slideInRight } from '../utils/animations'
 
 const services = [
-  {
-    icon: <Server size={20} strokeWidth={1.5} />,
-    title: 'IT Solutions',
-    description: 'End-to-end technology solutions including enterprise software, system integration, and digital transformation strategies.',
-    link: '/services#it',
-  },
-  {
-    icon: <Brain size={20} strokeWidth={1.5} />,
-    title: 'AI & Data',
-    description: 'Harness the power of artificial intelligence and advanced analytics to make smarter, faster business decisions.',
-    link: '/services#ai',
-  },
-  {
-    icon: <Cloud size={20} strokeWidth={1.5} />,
-    title: 'Cloud & Infrastructure',
-    description: 'Scalable, secure cloud architectures and managed infrastructure tailored to your enterprise needs.',
-    link: '/services#cloud',
-  },
-  {
-    icon: <Users size={20} strokeWidth={1.5} />,
-    title: 'Staffing & Consulting',
-    description: 'Expert talent placement and strategic consulting to strengthen your team and drive operational excellence.',
-    link: '/services#consulting',
-  },
-  {
-    icon: <Package size={20} strokeWidth={1.5} />,
-    title: 'Global Trade',
-    description: 'Comprehensive import/export management, logistics coordination, and customs consulting across the GCC and Asia.',
-    link: '/services#trade',
-  },
-]
-
-const caseStudies = [
-  {
-    industry: 'Logistics',
-    headline: 'Streamlined Port Operations for a GCC Freight Leader',
-    metric: '40% faster clearance',
-    color: 'bg-accent/10 text-accent',
-  },
-  {
-    industry: 'Manufacturing',
-    headline: 'AI-driven Quality Control Reduced Defect Rate by 60%',
-    metric: '60% defect reduction',
-    color: 'bg-gold/10 text-gold',
-  },
-  {
-    industry: 'Retail',
-    headline: 'Cloud Migration Cut Infrastructure Costs by Half',
-    metric: '50% cost savings',
-    color: 'bg-sage/20 text-forest',
-  },
-]
-
-const regions = [
-  { name: 'UAE', x: '62%', y: '46%' },
-  { name: 'Bahrain', x: '60%', y: '50%' },
-  { name: 'Qatar', x: '61%', y: '48%' },
-  { name: 'Oman', x: '64%', y: '52%' },
-  { name: 'Malaysia', x: '78%', y: '58%' },
-  { name: 'India', x: '70%', y: '52%' },
-]
-
-const clients = [
-  'AlFuttaim Group', 'Emaar Properties', 'DP World',
-  'Gulf Air', 'Bahrain Petroleum', 'Oman LNG',
+  { icon: <Cloud size={22} strokeWidth={1.5} />, title: 'Cloud Management', description: 'AWS, Google Cloud & Azure solutions — design, deploy, and manage for efficiency, security, and scalability.', link: '/services#cloud' },
+  { icon: <Building2 size={22} strokeWidth={1.5} />, title: 'Enterprise Management', description: 'ERP, SAP Outsourcing, business process automation, and IT infrastructure management.', link: '/services#enterprise' },
+  { icon: <Brain size={22} strokeWidth={1.5} />, title: 'Data & Artificial Intelligence', description: 'ML models, predictive analytics, AI-powered automation to transform data into actionable decisions.', link: '/services#ai' },
+  { icon: <Users size={22} strokeWidth={1.5} />, title: 'Consulting & Staffing', description: 'Expert IT consulting and top-tier talent acquisition — from short-term projects to long-term growth.', link: '/services#consulting' },
+  { icon: <ShieldCheck size={22} strokeWidth={1.5} />, title: 'Background Verification', description: 'AI-powered, compliance-first background checks completed in 24–48 hours with clear actionable reports.', link: '/services#bgv' },
+  { icon: <Network size={22} strokeWidth={1.5} />, title: 'Network Management', description: 'Proactive monitoring, security management and expert support to keep your network running smoothly.', link: '/services#network' },
+  { icon: <HeartPulse size={22} strokeWidth={1.5} />, title: 'Healthcare IT', description: 'Secure healthcare management systems, clinical analytics, and data compliance solutions for providers.', link: '/services#healthcare' },
+  { icon: <Package size={22} strokeWidth={1.5} />, title: 'Logistics Management', description: 'Dry container supply from Mumbai & Mundra ports, customs clearance, and end-to-end supply chain support.', link: '/services#logistics' },
+  { icon: <Globe2 size={22} strokeWidth={1.5} />, title: 'Export Management', description: 'Quality products from India to UAE, Bahrain, Qatar, Oman & Malaysia — built on trust and timely delivery.', link: '/services#export' },
 ]
 
 export default function HomePage() {
   return (
     <main className="bg-bg">
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-        {/* Background image */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/hero_logistics.png"
-            alt="Global logistics hub"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-forest/90 via-forest/70 to-transparent" />
-        </div>
+      <section className="relative pt-[68px] overflow-hidden">
+        <div className="max-w-container mx-auto px-6">
+          <div className="flex flex-col lg:flex-row items-center gap-12 py-16 lg:py-24">
+            <motion.div initial="hidden" animate="visible" variants={slideInLeft} className="w-full lg:w-1/2">
+              <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-accent mb-5">Bridging Innovation & Trade</span>
+              <h1 className="font-heading font-bold text-forest text-[36px] md:text-[46px] lg:text-[52px] tracking-tight leading-[1.1] mb-6">
+                Where Technology<br className="hidden md:block" />
+                Meets Global Trade<br className="hidden md:block" />
+                for <span className="italic text-accent">Limitless Growth.</span>
+              </h1>
+              <p className="text-textSecondary text-[15px] md:text-base leading-relaxed mb-8 max-w-lg">
+                SHNOOR INTERNATIONAL LLC specializes in IT Consulting & Staffing, Product Development, SAP Outsourcing, and Import & Export operations across India, UAE, Bahrain, Qatar, Oman & Malaysia.
+              </p>
+              <div className="flex flex-wrap gap-3 mb-8">
+                <Button href="/services" size="lg" variant="primary" withArrow>Explore Solutions</Button>
+                <Button href="/contact" size="lg" variant="outline" withArrow>Talk to an Expert</Button>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="flex -space-x-2">
+                  {['🇦🇪','🇮🇳','🇧🇭','🇴🇲','🇲🇾'].map((flag, i) => (
+                    <span key={i} className="w-8 h-8 rounded-full bg-cream border-2 border-white flex items-center justify-center text-sm">{flag}</span>
+                  ))}
+                </div>
+                <div>
+                  <div className="text-accent text-[13px]">★★★★★</div>
+                  <p className="text-textSecondary text-[12px]">Top rated by <strong className="text-forest">100+ clients</strong></p>
+                </div>
+              </div>
+            </motion.div>
 
-        <div className="relative z-10 max-w-container mx-auto px-6 py-24">
-          <div className="max-w-xl">
-            <motion.span
-              initial="hidden" animate="visible" variants={fadeUp} custom={0}
-              className="inline-block text-xs font-semibold uppercase tracking-widest text-accent/90 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6"
-            >
-              Shnoor International LLC
-            </motion.span>
-
-            <motion.h1
-              initial="hidden" animate="visible" variants={fadeUp} custom={1}
-              className="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight mb-6"
-            >
-              Technology Meets Global Trade for{' '}
-              <span className="text-accent">Limitless Growth</span>
-            </motion.h1>
-
-            <motion.p
-              initial="hidden" animate="visible" variants={fadeUp} custom={2}
-              className="text-white/75 text-lg leading-relaxed mb-8"
-            >
-              We bridge IT innovation and international trade — delivering enterprise solutions,
-              AI insights, and logistics expertise across the GCC and Asia.
-            </motion.p>
-
-            <motion.div
-              initial="hidden" animate="visible" variants={fadeUp} custom={3}
-              className="flex flex-wrap gap-3"
-            >
-              <Button href="/contact" size="lg" variant="accent">
-                Get a Consultation
-              </Button>
-              <Button href="/services" size="lg" variant="secondary"
-                className="border-white/30 text-white hover:bg-white/10 hover:border-white/50"
-              >
-                Explore Services <ArrowRight size={16} />
-              </Button>
+            <motion.div initial="hidden" animate="visible" variants={slideInRight} className="w-full lg:w-1/2">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=900&q=85&auto=format" alt="Global shipping — Shnoor International" className="w-full h-[320px] md:h-[420px] object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest/30 to-transparent" />
+                <div className="absolute bottom-5 left-5 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg">
+                  <p className="font-heading font-bold text-forest text-[14px]">6 Countries</p>
+                  <p className="text-textSecondary text-[11px]">India · UAE · Bahrain · Qatar · Oman · Malaysia</p>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Stats bar */}
-      <section className="bg-white border-y border-border">
+      {/* Stats Bar */}
+      <section className="border-y border-border bg-white">
         <div className="max-w-container mx-auto px-6 py-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial="hidden" whileInView="visible" variants={fadeUp} custom={i}
-                viewport={{ once: true }}
-                className="flex flex-col items-center text-center gap-1"
-              >
-                <div className="text-accent mb-1">{s.icon}</div>
-                <span className="font-heading font-bold text-3xl text-forest">{s.value}</span>
-                <span className="text-textSecondary text-sm">{s.label}</span>
+            {[{ value: '100+', label: 'Clients Served' }, { value: '6', label: 'Countries' }, { value: '9+', label: 'Service Verticals' }, { value: '2', label: 'Major Port Hubs' }].map((s, i) => (
+              <motion.div key={s.label} initial="hidden" whileInView="visible" variants={fadeUp} custom={i} viewport={{ once: true }} className="flex flex-col items-center text-center gap-1">
+                <span className="font-heading font-bold text-[34px] text-forest leading-none">{s.value}</span>
+                <span className="text-textSecondary text-[13px]">{s.label}</span>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Services overview */}
-      <section className="py-24 px-6">
+      {/* Services */}
+      <section className="py-20 lg:py-28 px-6">
         <div className="max-w-container mx-auto">
           <motion.div initial="hidden" whileInView="visible" variants={fadeUp} viewport={{ once: true }}>
-            <SectionHeader
-              label="What We Do"
-              title="Integrated Solutions for a Complex World"
-              subtitle="From enterprise IT to cross-border trade — we offer the full spectrum of services your business needs to compete globally."
-            />
+            <SectionHeader label="What We Do" title="Connecting Technology & Trade Together"
+              subtitle="From IT Consulting and SAP Outsourcing to global import-export operations — we are your single partner for growth."
+              titleClassName="text-2xl md:text-[32px] max-w-2xl mx-auto" />
           </motion.div>
-
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.map((s, i) => (
-              <motion.div
-                key={s.title}
-                initial="hidden" whileInView="visible" variants={fadeUp} custom={i}
-                viewport={{ once: true }}
-              >
+              <motion.div key={s.title} initial="hidden" whileInView="visible" variants={fadeUp} custom={i} viewport={{ once: true }}>
                 <ServiceCard {...s} />
               </motion.div>
             ))}
           </div>
-
-          <div className="mt-10 text-center">
-            <Button href="/services" variant="secondary">
-              View All Services <ArrowRight size={15} />
-            </Button>
-          </div>
         </div>
       </section>
 
-      {/* Global presence */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-container mx-auto">
-          <motion.div initial="hidden" whileInView="visible" variants={fadeUp} viewport={{ once: true }}>
-            <SectionHeader
-              label="Global Reach"
-              title="Serving Businesses Across Continents"
-              subtitle="With offices and partners across the Middle East and South Asia, we deliver local expertise with global scale."
-            />
-          </motion.div>
-
-          <div className="mt-12 relative bg-bg rounded-2xl border border-border overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80&auto=format"
-              alt="World map"
-              className="w-full h-64 md:h-96 object-cover opacity-30"
-            />
-            {/* Region markers */}
-            {regions.map(r => (
-              <div
-                key={r.name}
-                className="absolute flex flex-col items-center"
-                style={{ left: r.x, top: r.y, transform: 'translate(-50%, -50%)' }}
-              >
-                <div className="w-3 h-3 rounded-full bg-accent ring-4 ring-accent/30 animate-pulse" />
-                <span className="mt-1 text-[10px] font-semibold text-forest bg-white/90 rounded px-1.5 py-0.5 shadow-sm whitespace-nowrap">
-                  {r.name}
-                </span>
+      {/* Global Reach Banner */}
+      <section className="relative overflow-hidden bg-forest">
+        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+        <div className="relative z-10 max-w-container mx-auto px-6 py-16 lg:py-24">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <motion.div initial="hidden" whileInView="visible" variants={slideInLeft} viewport={{ once: true }} className="w-full lg:w-[45%]">
+              <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-accent mb-5">Our Presence</span>
+              <h2 className="font-heading font-bold text-white text-[30px] md:text-[40px] lg:text-[44px] tracking-tight leading-[1.1] mb-5">
+                Global Reach.<br /><span className="text-accent">Local Expertise.</span>
+              </h2>
+              <p className="text-white/55 text-[15px] leading-relaxed mb-8 max-w-sm">
+                Headquartered in Muscat, Oman — operating across India, UAE, Bahrain, Qatar, Oman & Malaysia, building strong trade bridges and lasting partnerships worldwide.
+              </p>
+              <div className="grid grid-cols-3 gap-4 mb-8">
+                {[{ value: '6', label: 'Countries' }, { value: '100+', label: 'Clients' }, { value: 'Oman', label: 'HQ' }].map((s) => (
+                  <div key={s.label} className="border border-white/10 rounded-xl p-4 text-center bg-white/5">
+                    <span className="font-heading font-bold text-white text-[22px] leading-none block">{s.value}</span>
+                    <span className="text-white/40 text-[12px] mt-1 block">{s.label}</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+              <Button href="/about" variant="accent" withArrow>View Our Presence</Button>
+            </motion.div>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            {regions.map(r => (
-              <span key={r.name} className="flex items-center gap-1.5 text-sm text-textSecondary">
-                <CheckCircle size={13} className="text-accent" /> {r.name}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case studies */}
-      <section className="py-24 px-6">
-        <div className="max-w-container mx-auto">
-          <motion.div initial="hidden" whileInView="visible" variants={fadeUp} viewport={{ once: true }}>
-            <SectionHeader
-              label="Case Studies"
-              title="Results That Speak for Themselves"
-              subtitle="Real impact, measurable outcomes. Here's how we've helped our clients grow."
-            />
-          </motion.div>
-
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {caseStudies.map((c, i) => (
-              <motion.div
-                key={c.headline}
-                initial="hidden" whileInView="visible" variants={fadeUp} custom={i}
-                viewport={{ once: true }}
-                className="group bg-card border border-border rounded-xl p-6 hover:shadow-md transition-all duration-300 cursor-pointer"
-              >
-                <span className={`text-xs font-semibold uppercase tracking-wider rounded-full px-3 py-1 ${c.color}`}>
-                  {c.industry}
-                </span>
-                <h3 className="font-heading font-semibold text-forest text-lg leading-snug mt-4 mb-3 tracking-tight">
-                  {c.headline}
-                </h3>
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-heading font-bold text-accent">{c.metric}</span>
-                  <ArrowRight size={16} className="text-textSecondary group-hover:text-accent transition-colors" />
+            <motion.div initial="hidden" whileInView="visible" variants={slideInRight} viewport={{ once: true }} className="w-full lg:w-[55%]">
+              <div className="relative rounded-2xl overflow-hidden border border-white/10">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1000&q=85&auto=format" alt="Global reach world map" className="w-full h-[280px] md:h-[360px] object-cover opacity-30 mix-blend-luminosity" />
+                <div className="absolute inset-0 bg-gradient-to-br from-forest/60 via-transparent to-forest/40" />
+                {[
+                  { name: 'UAE', flag: '🇦🇪', x: '63%', y: '44%' },
+                  { name: 'Bahrain', flag: '🇧🇭', x: '60%', y: '48%' },
+                  { name: 'Qatar', flag: '🇶🇦', x: '62%', y: '51%' },
+                  { name: 'Oman', flag: '🇴🇲', x: '65%', y: '52%' },
+                  { name: 'India', flag: '🇮🇳', x: '71%', y: '52%' },
+                  { name: 'Malaysia', flag: '🇲🇾', x: '79%', y: '58%' },
+                ].map((loc, i) => (
+                  <div key={loc.name} className="absolute flex flex-col items-center" style={{ left: loc.x, top: loc.y, transform: 'translate(-50%, -50%)' }}>
+                    <div className="relative">
+                      <div className="w-3 h-3 rounded-full bg-accent z-10 relative shadow-lg shadow-accent/50" />
+                      <div className="absolute inset-0 w-3 h-3 rounded-full bg-accent/40 animate-ping" style={{ animationDelay: `${i * 0.3}s` }} />
+                    </div>
+                    <div className="mt-1.5 bg-white/95 backdrop-blur-sm rounded-lg px-2 py-0.5 shadow-lg whitespace-nowrap">
+                      <span className="text-[10px] font-semibold text-forest">{loc.flag} {loc.name}</span>
+                    </div>
+                  </div>
+                ))}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-forest/90 to-transparent px-5 py-4">
+                  <p className="text-white/60 text-[12px]">Headquartered in Muscat, Oman · Serving India, UAE, Bahrain, Qatar, Oman & Malaysia</p>
                 </div>
-              </motion.div>
-            ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Client logos */}
-      <section className="py-16 px-6 bg-white border-y border-border">
+      {/* Testimonial */}
+      <section className="py-20 lg:py-24 px-6 bg-white border-b border-border">
         <div className="max-w-container mx-auto">
-          <p className="text-center text-xs font-semibold uppercase tracking-widest text-textSecondary mb-8">
-            Trusted by leading organizations
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {clients.map(c => (
-              <span key={c} className="font-heading font-semibold text-sm text-textSecondary/60 hover:text-forest transition-colors cursor-default">
-                {c}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Banner */}
-      <section className="py-24 px-6 bg-forest">
-        <div className="max-w-container mx-auto text-center">
-          <motion.div initial="hidden" whileInView="visible" variants={fadeUp} viewport={{ once: true }}>
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-accent mb-4">
-              Ready to scale?
-            </span>
-            <h2 className="font-heading font-bold text-white text-3xl md:text-4xl tracking-tight mb-4">
-              Let's Build Something Exceptional Together
-            </h2>
-            <p className="text-white/60 text-base md:text-lg mb-8 max-w-xl mx-auto">
-              Talk to our experts and discover how Shnoor can accelerate your business across IT, AI, and global trade.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button href="/contact" size="lg" variant="accent">
-                Get a Consultation
-              </Button>
-              <Button href="/about" size="lg" variant="secondary"
-                className="border-white/30 text-white hover:bg-white/10 hover:border-white/50"
-              >
-                Learn About Us
-              </Button>
+          <motion.div initial="hidden" whileInView="visible" variants={fadeUp} viewport={{ once: true }} className="max-w-2xl mx-auto text-center">
+            <div className="flex justify-center mb-5 text-accent text-lg">★★★★★</div>
+            <blockquote className="font-heading text-forest text-[18px] md:text-[22px] leading-relaxed tracking-tight mb-6">
+              "Working with SHNOOR International LLC has been a game-changer for our business. Their IT consulting team understood our requirements perfectly and delivered a custom solution that improved our efficiency by leaps and bounds. On top of that, their import services were smooth, reliable, and hassle-free."
+            </blockquote>
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-cream flex items-center justify-center text-forest font-bold text-[14px]">AK</div>
+              <div className="text-left">
+                <p className="font-semibold text-forest text-[14px]">Amita Khanna</p>
+                <p className="text-textSecondary text-[12px]">Delivery Head · SF Technologies, Singapore</p>
+              </div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="mx-6 my-12">
+        <div className="max-w-container mx-auto bg-white border border-border rounded-2xl px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <p className="font-heading font-semibold text-forest text-[16px]">Ready to grow your business globally?</p>
+            <p className="text-textSecondary text-[13px]">IT solutions + global trade expertise, under one roof.</p>
+          </div>
+          <Button href="/contact" variant="primary" withArrow>Get in Touch</Button>
         </div>
       </section>
     </main>
