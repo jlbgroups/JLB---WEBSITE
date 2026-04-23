@@ -1,31 +1,33 @@
 # Dependencies
-shnoor-app/node_modules/
 node_modules/
 
-# Build
-shnoor-app/dist/
-shnoor-app/dist-ssr/
+# Build output
 dist/
+dist-ssr/
 
 # Logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Environment
+# Local env files
 .env
 .env.local
 .env.*.local
 
-# IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
+# Editor directories
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 Thumbs.db
 
 # Gemini / Antigravity
