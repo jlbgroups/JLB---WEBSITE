@@ -8,7 +8,7 @@ import { fadeUp, slideInLeft, slideInRight } from '../utils/animations'
 // Map hash → tab index (must match the services array order below)
 const HASH_TO_INDEX: Record<string, number> = {
   cloud: 0, enterprise: 1, ai: 2, consulting: 3,
-  bgv: 4, network: 5, healthcare: 6, logistics: 7, export: 8,
+  bgv: 4, network: 5, sales: 6, 'software-dev': 7, 'managed-services': 8,
 }
 
 const services = [
@@ -16,7 +16,7 @@ const services = [
     id: 'cloud',
     icon: <Cloud size={22} strokeWidth={1.5} />,
     title: 'Cloud Management',
-    description: 'In today\'s digital era, the cloud is no longer an option—it\'s a necessity. At SHNOOR International LLC, we help businesses harness the full potential of cloud technology to optimize operations, improve collaboration, and reduce infrastructure costs.',
+    description: 'In today\'s digital era, the cloud is no longer an option—it\'s a necessity. At JLB Groups, we help businesses harness the full potential of cloud technology to optimize operations, improve collaboration, and reduce infrastructure costs.',
     capabilities: ['AWS Cloud Solutions', 'Google Cloud Platform (GCP)', 'Microsoft Azure', 'Cloud Migration & Lift-and-Shift', 'Multi-Cloud Architecture Design', 'Cloud Security & Compliance'],
     image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80&auto=format',
     imageAlt: 'Cloud infrastructure',
@@ -67,31 +67,31 @@ const services = [
     imageAlt: 'Network infrastructure',
   },
   {
-    id: 'healthcare',
+    id: 'sales',
     icon: <HeartPulse size={22} strokeWidth={1.5} />,
-    title: 'Healthcare IT',
-    description: 'We leverage advanced healthcare software combined with data intelligence and AI to help healthcare providers streamline operations, enhance patient care, and improve clinical outcomes. Secure, compliant, and built for the future of healthcare.',
-    capabilities: ['Healthcare Management Systems', 'Secure Data & Compliance Solutions', 'Analytics & Decision Support Tools', 'Clinical Intelligence & Insights', 'Patient Records & Scheduling Platforms', 'HIPAA-Compliant Cloud Infrastructure'],
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80&auto=format',
-    imageAlt: 'Healthcare technology',
+    title: 'Sales',
+    description: 'Our Sales services focus on revenue growth, market expansion, and customer relationship management. We provide high-performance sales teams and strategies to help businesses scale their presence in the USA market.',
+    capabilities: ['Lead Generation', 'B2B Sales Strategy', 'Customer Acquisition', 'Sales Pipeline Automation', 'CRM Implementation', 'Market Expansion Consulting'],
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80&auto=format',
+    imageAlt: 'Sales growth and team planning',
   },
   {
-    id: 'logistics',
+    id: 'software-dev',
     icon: <Package size={22} strokeWidth={1.5} />,
-    title: 'Logistics Management',
-    description: 'We simplify global trade with reliable logistics management solutions. With strong operational bases at Mumbai Port and Mundra Port, Gujarat, we offer unmatched connectivity for businesses expanding their global reach.',
-    capabilities: ['Dry Container Supply from Mumbai & Mundra Ports', 'Cargo Handling, Packing & Securing', 'Customs Clearance & Regulatory Documentation', 'Multi-Modal Transport (Sea, Rail & Road)', 'Real-Time Tracking & Monitoring', 'End-to-End Supply Chain Support'],
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80&auto=format',
-    imageAlt: 'Port logistics and shipping containers',
+    title: 'Custom Software Development',
+    description: 'We build high-quality, scalable, and secure software solutions tailored to your specific business needs. From initial concept to deployment and beyond, our expert developers use the latest technologies to bring your vision to life.',
+    capabilities: ['Web Application Development', 'Mobile App Development (iOS & Android)', 'Enterprise Software Solutions', 'API Integration & Development', 'UI/UX Design & Prototyping', 'Legacy System Modernization'],
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80&auto=format',
+    imageAlt: 'Software development team and code',
   },
   {
-    id: 'export',
+    id: 'managed-services',
     icon: <Globe2 size={22} strokeWidth={1.5} />,
-    title: 'Export Management',
-    description: 'We bridge markets by delivering high-quality products from India to global destinations including UAE, Bahrain, Qatar, Oman, and Malaysia. Our services are built on trust, transparency, and timely delivery — ensuring seamless cross-border trade.',
-    capabilities: ['Product Sourcing & Procurement', 'International Shipping & Logistics', 'Quality Control & Compliance', 'Market Expansion Support', 'Customized Export Strategies', 'Trade Finance Advisory'],
-    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80&auto=format',
-    imageAlt: 'Export management and global trade',
+    title: 'Managed IT Services',
+    description: 'Focus on your core business while we handle your technology. Our managed services provide comprehensive IT support, maintenance, and strategic guidance to ensure your systems are always optimized, secure, and ready for growth.',
+    capabilities: ['24/7 IT Support & Helpdesk', 'Managed Security Services', 'Infrastructure Monitoring', 'IT Asset Management', 'Disaster Recovery & Business Continuity', 'Strategic Technology Planning'],
+    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80&auto=format',
+    imageAlt: 'Managed IT services and support center',
   },
 ]
 
@@ -121,11 +121,11 @@ export default function ServicesPage() {
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
             <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.2em] text-accent mb-4">Our Services</span>
             <h1 className="font-heading font-bold text-forest text-[32px] md:text-[42px] tracking-tight leading-tight max-w-2xl mb-4">
-              Integrated Solutions for Technology & Global Trade
+              Integrated Solutions for Technology & Business Growth
             </h1>
             <div className="space-y-4 max-w-2xl">
               <p className="text-textSecondary text-[15px] leading-relaxed">
-                We provide end-to-end solutions to help businesses scale and succeed in a global market. From secure cloud infrastructure and AI-driven systems to efficient logistics and export management, we bring everything together under one roof.
+                We provide end-to-end solutions to help businesses scale and succeed in a digital-first world. From secure cloud infrastructure and AI-driven systems to custom software and managed IT services, we bring everything together under one roof.
               </p>
               <p className="text-textSecondary text-[15px] leading-relaxed">
                 Our integrated approach simplifies operations, enhances efficiency, and ensures seamless global reach — whether you're building your digital foundation or expanding internationally.
@@ -204,7 +204,7 @@ export default function ServicesPage() {
         <div className="max-w-container mx-auto text-center">
           <motion.div initial="hidden" whileInView="visible" variants={fadeUp} viewport={{ once: true }}>
             <h2 className="font-heading font-bold text-white text-[28px] md:text-[34px] tracking-tight mb-3">Not Sure Which Service You Need?</h2>
-            <p className="text-white/50 text-[15px] mb-8 max-w-lg mx-auto">Talk to our team. We'll assess your situation and recommend the right approach. Email us at <a href="mailto:info@shnoor.com" className="text-accent underline">info@shnoor.com</a></p>
+            <p className="text-white/50 text-[15px] mb-8 max-w-lg mx-auto">Talk to our team. We'll assess your situation and recommend the right approach. Email us at <a href="mailto:JLB@jlbgroups.com" className="text-accent underline">JLB@jlbgroups.com</a></p>
             <Button href="/contact" size="lg" variant="accent" withArrow>Get a Free Consultation</Button>
           </motion.div>
         </div>

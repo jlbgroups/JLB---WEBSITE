@@ -5,7 +5,7 @@ export default function PrivacyPolicyPage() {
   const sections = [
     {
       title: 'Personal information we collect:',
-      content: 'When you visit the www.shnoor.com, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the installed cookies on your device. Additionally, as you browse the Site, we collect information about the individual web pages or products you view, what websites or search terms referred you to the Site, and how you interact with the Site. We refer to this automatically-collected information as "Device Information." Moreover, we might collect the personal data you provide to us (including but not limited to Name, Surname, Address, payment information, etc.) during registration to be able to fulfill the agreement.'
+      content: 'When you visit the www.jlbgroups.com, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the installed cookies on your device. Additionally, as you browse the Site, we collect information about the individual web pages or products you view, what websites or search terms referred you to the Site, and how you interact with the Site. We refer to this automatically-collected information as "Device Information." Moreover, we might collect the personal data you provide to us (including but not limited to Name, Surname, Address, payment information, etc.) during registration to be able to fulfill the agreement.'
     },
     {
       title: 'Why do we process your data?',
@@ -39,7 +39,7 @@ export default function PrivacyPolicyPage() {
     },
     {
       title: 'Contact information:',
-      content: 'If you would like to contact us to understand more about this Policy or wish to contact us concerning any matter relating to individual rights and your Personal Information, you may send an email to info@shnoor.com.'
+      content: 'If you would like to contact us to understand more about this Policy or wish to contact us concerning any matter relating to individual rights and your Personal Information, you may send an email to JLB@jlbgroups.com.'
     }
   ]
 
@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
               Privacy Policy
             </h1>
             <p className="text-textPrimary text-[15px] max-w-2xl leading-relaxed">
-              At SHNOOR International LLC, we take care of your personal data and undertake to guarantee its confidentiality and security. This policy outlines how we process the information collected by shnoor.com.
+              At JLB Groups, we take care of your personal data and undertake to guarantee its confidentiality and security. This policy outlines how we process the information collected by jlbgroups.com.
             </p>
           </motion.div>
         </div>
@@ -65,8 +65,8 @@ export default function PrivacyPolicyPage() {
         <div className="max-w-3xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" variants={fadeUp} viewport={{ once: true }} className="space-y-12">
             <div className="prose prose-forest max-w-none">
-              <p className="text-textPrimary text-[15px] leading-relaxed mb-8">
-                www.shnoor.com website is owned by SHNOOR INTERNATIONAL LLC, which is a data controller of your personal data. We have adopted this Privacy Policy, which determines how we are processing the information collected by www.shnoor.com, which also provides the reasons why we must collect certain personal data about you. Therefore, you must read this Privacy Policy before using www.shnoor.com website.
+              <p className="text-textSecondary text-[14px]">
+                www.jlbgroups.com website is owned by JLB Groups, which is a data controller of your personal data. We have adopted this Privacy Policy, which determines how we are processing the information collected by www.jlbgroups.com, which also provides the reasons why we must collect certain personal data about you. Therefore, you must read this Privacy Policy before using www.jlbgroups.com website.
               </p>
 
               {sections.map((section, idx) => (

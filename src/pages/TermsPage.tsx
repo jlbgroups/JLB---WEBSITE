@@ -5,16 +5,16 @@ export default function TermsPage() {
   const sections = [
     {
       title: 'Cookies:',
-      content: 'The website uses cookies to help personalize your online experience. By accessing www.shnoor.com, you agreed to use the required cookies. A cookie is a text file that is placed on your hard disk by a web page server. Cookies cannot be used to run programs or deliver viruses to your computer.\n\nWe may use cookies to collect, store, and track information for statistical or marketing purposes to operate our website. You have the ability to accept or decline optional Cookies. There are some required Cookies that are necessary for the operation of our website. These cookies do not require your consent as they always work.'
+      content: 'The website uses cookies to help personalize your online experience. By accessing www.jlbgroups.com, you agreed to use the required cookies. A cookie is a text file that is placed on your hard disk by a web page server. Cookies cannot be used to run programs or deliver viruses to your computer.\n\nWe may use cookies to collect, store, and track information for statistical or marketing purposes to operate our website. You have the ability to accept or decline optional Cookies. There are some required Cookies that are necessary for the operation of our website. These cookies do not require your consent as they always work.'
     },
     {
       title: 'License:',
-      content: 'Unless otherwise stated, SHNOOR INTERNATIONAL and/or its licensors own the intellectual property rights for all material on www.shnoor.com. All intellectual property rights are reserved. You may access this from www.shnoor.com for your own personal use subjected to restrictions set in these terms and conditions.\n\nYou must not:',
+      content: 'Unless otherwise stated, JLB Groups and/or its licensors own the intellectual property rights for all material on www.jlbgroups.com. All intellectual property rights are reserved. You may access this from www.jlbgroups.com for your own personal use subjected to restrictions set in these terms and conditions.\n\nYou must not:',
       list: [
-        'Copy or republish material from www.shnoor.com',
-        'Sell, rent, or sub-license material from www.shnoor.com',
-        'Reproduce, duplicate or copy material from www.shnoor.com',
-        'Redistribute content from www.shnoor.com'
+        'Copy or republish material from www.jlbgroups.com',
+        'Sell, rent, or sub-license material from www.jlbgroups.com',
+        'Reproduce, duplicate or copy material from www.jlbgroups.com',
+        'Redistribute content from www.jlbgroups.com'
       ]
     },
     {
@@ -53,7 +53,7 @@ export default function TermsPage() {
               Terms & Conditions
             </h1>
             <p className="text-textPrimary text-[15px] max-w-2xl leading-relaxed">
-              These terms and conditions outline the rules and regulations for the use of SHNOOR INTERNATIONAL's Website, located at shnoor.com.
+              These terms and conditions outline the rules and regulations for the use of JLB Groups's Website, located at jlbgroups.com.
             </p>
           </motion.div>
         </div>
@@ -65,7 +65,7 @@ export default function TermsPage() {
           <motion.div initial="hidden" whileInView="visible" variants={fadeUp} viewport={{ once: true }} className="space-y-12">
             <div className="prose prose-forest max-w-none">
               <p className="text-textPrimary text-[15px] leading-relaxed mb-8">
-                Welcome to www.shnoor.com! By accessing this website, we assume you accept these terms and conditions. Do not continue to use www.shnoor.com if you do not agree to take all of the terms and conditions stated on this page.
+                Welcome to www.jlbgroups.com! By accessing this website, we assume you accept these terms and conditions. Do not continue to use www.jlbgroups.com if you do not agree to take all of the terms and conditions stated on this page.
               </p>
 
               {sections.map((section, idx) => (

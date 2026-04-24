@@ -2,18 +2,27 @@
 @import "tailwindcss";
 
 @theme {
-  --color-forest: #2C3E2D;
-  --color-forest-light: #3A5040;
-  --color-sage: #6E8F7B;
-  --color-accent: #3A7D44;
-  --color-gold: #C5A55A;
-  --color-bg: #FAF8F5;
-  --color-cream: #F5F0EA;
+  --color-forest: #0B132B;
+  /* Dark Midnight Navy */
+  --color-forest-light: #1C2541;
+  /* Slate Navy */
+  --color-sage: #3A506B;
+  /* Slate Blue */
+  --color-accent: #006AFF;
+  /* Electric Tech Blue */
+  --color-gold: #00E5FF;
+  /* Cyan Accent */
+  --color-bg: #F8FAFC;
+  /* Slate 50 */
+  --color-cream: #F1F5F9;
+  /* Slate 100 */
   --color-card: #FFFFFF;
-  --color-border: #E8E5DF;
-  --color-border-light: #F0EDE8;
-  --color-textPrimary: #1A1A1A;
-  --color-textSecondary: #7A7A72;
+  --color-border: #E2E8F0;
+  --color-border-light: #F1F5F9;
+  --color-textPrimary: #0F172A;
+  /* Slate 900 */
+  --color-textSecondary: #64748B;
+  /* Slate 500 */
 
   --font-heading: "Poppins", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -42,7 +51,12 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     letter-spacing: -0.02em;
@@ -50,12 +64,13 @@
   }
 
   ::selection {
-    background-color: #3A7D44;
+    background-color: #006AFF;
     color: #FFFFFF;
   }
 }
 
 @layer utilities {
+
   /* Dot grid background pattern */
   .dot-grid {
     background-image: radial-gradient(circle, #D6D3CC 1px, transparent 1px);
@@ -73,13 +88,14 @@
   }
 
   .gradient-forest {
-    background: linear-gradient(135deg, #2C3E2D 0%, #1A2B1C 100%);
+    background: linear-gradient(135deg, #0B132B 0%, #050914 100%);
   }
 
   /* Subtle card hover */
   .card-hover {
     transition: all 0.3s cubic-bezier(0.22, 0.03, 0.26, 1);
   }
+
   .card-hover:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
@@ -97,16 +113,72 @@
 
   /* Smooth scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
+
   ::-webkit-scrollbar-track {
     background: #FAF8F5;
   }
+
   ::-webkit-scrollbar-thumb {
     background: #D6D3CC;
-    border-radius: 4px;
+    border-radius: 10px;
   }
+
   ::-webkit-scrollbar-thumb:hover {
-    background: #B8B5AE;
+    background: #006AFF;
+  }
+
+  /* Premium Dynamic UI Classes */
+  .card-premium {
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 4px 20px rgba(11, 19, 43, 0.05);
+    /* forest transparent */
+  }
+
+  .card-premium:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 106, 255, 0.12);
+    /* accent transparent */
+    border-color: rgba(0, 106, 255, 0.2);
+  }
+
+  .tech-grid {
+    background-image:
+      linear-gradient(rgba(0, 106, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 106, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: center center;
+  }
+
+  .gradient-tech {
+    background: linear-gradient(135deg, #0B132B 0%, #050914 100%);
+    /* forest to darker forest */
+  }
+
+  .text-shadow-sm {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Float animation */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  /* Glow ring for featured elements */
+  .glow-ring {
+    box-shadow: 0 0 0 1px rgba(58, 125, 68, 0.3), 0 0 20px rgba(58, 125, 68, 0.15);
   }
 }

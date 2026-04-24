@@ -6,19 +6,19 @@ import { fadeUp } from '../utils/animations'
 const industries = [
   {
     icon: <Package size={22} strokeWidth={1.5} />,
-    title: 'Logistics & Supply Chain',
-    tag: 'Logistics Management',
-    description: 'We simplify global trade with reliable logistics management solutions. With strong operational bases at Mumbai Port and Mundra Port, Gujarat, we offer unmatched connectivity and efficiency for businesses expanding their global reach.',
-    highlights: ['Dry Container Supply from Mumbai & Mundra Ports', 'Customs Clearance & Documentation', 'Multi-Modal Transport (Sea, Rail & Road)', 'Real-Time Cargo Tracking'],
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80&auto=format',
+    title: 'Retail & E-commerce',
+    tag: 'Digital Solutions',
+    description: 'We empower retailers and e-commerce businesses with robust digital platforms and seamless customer experiences. From custom storefronts to integrated inventory management — we help you win in the digital marketplace.',
+    highlights: ['Custom E-commerce Platforms', 'Inventory & OMS Integration', 'Digital Payment Solutions', 'Omnichannel Experience Design'],
+    image: 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=800&q=80&auto=format',
   },
   {
     icon: <Globe2 size={22} strokeWidth={1.5} />,
-    title: 'Import & Export Trade',
-    tag: 'Export Management',
-    description: 'We bridge markets by delivering high-quality products from India to global destinations including UAE, Bahrain, Qatar, Oman, and Malaysia. Our services are built on trust, transparency, and timely delivery. We deal with producers, farmers, wholesalers, and importers to establish a strong global presence.',
-    highlights: ['Product Sourcing & Procurement', 'International Shipping & Logistics', 'Quality Control & Compliance', 'Market Expansion Support'],
-    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80&auto=format',
+    title: 'FinTech & Banking',
+    tag: 'Financial Software',
+    description: 'We deliver secure, scalable, and compliant financial technology solutions. Whether it\'s building digital wallets, payment gateways, or clinical analytics for finance — our expertise ensures your platform is future-ready and safe.',
+    highlights: ['Digital Banking Solutions', 'Secure Payment Gateways', 'Financial Data Analytics', 'Regulatory Compliance IT'],
+    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80&auto=format',
   },
   {
     icon: <Building2 size={22} strokeWidth={1.5} />,
@@ -46,11 +46,11 @@ const industries = [
   },
   {
     icon: <HeartPulse size={22} strokeWidth={1.5} />,
-    title: 'Healthcare',
-    tag: 'Healthcare IT',
-    description: 'We leverage advanced healthcare software combined with data intelligence and AI to help healthcare providers streamline operations, enhance patient care, and improve clinical outcomes. Our systems utilize secure data management, predictive analytics, and intelligent automation.',
-    highlights: ['Healthcare Management Systems', 'Secure Data & Compliance Solutions', 'Analytics & Decision Support Tools', 'HIPAA-Compliant Infrastructure'],
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80&auto=format',
+    title: 'Sales',
+    tag: 'Revenue Growth',
+    description: 'We provide strategic sales solutions and high-performing talent to help businesses scale their revenue and market share. From lead generation to closing complex B2B deals — our sales experts drive results in the USA market.',
+    highlights: ['B2B Sales & Lead Generation', 'Sales Team Augmentation', 'Revenue Strategy Consulting', 'CRM & Pipeline Optimization'],
+    image: 'https://images.unsplash.com/photo-1556740734-7f132e01df7b?w=800&q=80&auto=format',
   },
 ]
 
@@ -66,7 +66,7 @@ export default function IndustriesPage() {
               Industries We Serve
             </h1>
             <p className="text-textSecondary text-[15px] max-w-xl leading-relaxed">
-              From healthcare and logistics to technology and global trade — SHNOOR International delivers tailored solutions across the sectors that matter most.
+              From sales and retail to fintech and manufacturing — JLB Groups delivers tailored IT solutions across the sectors that matter most.
             </p>
           </motion.div>
         </div>
@@ -112,16 +112,11 @@ export default function IndustriesPage() {
         <div className="max-w-container mx-auto">
           <motion.div initial="hidden" whileInView="visible" variants={fadeUp} viewport={{ once: true }} className="text-center mb-10">
             <h2 className="font-heading font-bold text-white text-[26px] md:text-[32px] tracking-tight mb-3">Markets We Operate In</h2>
-            <p className="text-white/50 text-[15px] max-w-md mx-auto">Connecting businesses across India and the Middle East & Southeast Asia.</p>
+            <p className="text-white/50 text-[15px] max-w-md mx-auto">Connecting businesses across the USA.</p>
           </motion.div>
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              { flag: '🇮🇳', name: 'India', note: 'Mumbai & Mundra Ports' },
-              { flag: '🇦🇪', name: 'UAE', note: 'Key Trade Hub' },
-              { flag: '🇧🇭', name: 'Bahrain', note: 'GCC Market' },
-              { flag: '🇶🇦', name: 'Qatar', note: 'GCC Market' },
-              { flag: '🇴🇲', name: 'Oman', note: 'HQ Country' },
-              { flag: '🇲🇾', name: 'Malaysia', note: 'Southeast Asia' },
+              { flag: '🇺🇸', name: 'USA', note: 'Headquarters' },
             ].map((m, i) => (
               <motion.div key={m.name} initial="hidden" whileInView="visible" variants={fadeUp} custom={i} viewport={{ once: true }}
                 className="bg-white/8 border border-white/10 rounded-2xl px-6 py-5 text-center min-w-[130px]">

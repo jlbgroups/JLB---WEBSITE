@@ -10,13 +10,13 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
 }
 
-const base = 'inline-flex items-center justify-center gap-2 rounded-lg font-semibold font-body transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 group/btn'
+const base = 'inline-flex items-center justify-center gap-2 rounded-full font-bold font-body transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95 group/btn'
 
 const variants = {
-  primary: 'bg-forest text-white hover:bg-forest-light focus:ring-forest shadow-sm',
+  primary: 'bg-forest text-white hover:bg-forest-light focus:ring-forest shadow-[0_4px_14px_rgba(11,19,43,0.3)] hover:shadow-[0_6px_20px_rgba(11,19,43,0.4)]',
   secondary: 'border-2 border-forest text-forest hover:bg-forest hover:text-white focus:ring-forest',
-  accent: 'bg-accent text-white hover:bg-accent/90 focus:ring-accent shadow-sm',
-  outline: 'border border-border text-textPrimary hover:border-forest hover:text-forest focus:ring-forest bg-white',
+  accent: 'bg-accent text-white hover:opacity-90 focus:ring-accent shadow-[0_4px_14px_rgba(0,106,255,0.35)] hover:shadow-[0_6px_20px_rgba(0,106,255,0.5)]',
+  outline: 'border border-border text-textPrimary hover:border-accent hover:text-accent focus:ring-accent bg-white/50 backdrop-blur-sm',
 }
 
 const sizes = {

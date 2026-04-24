@@ -6,7 +6,7 @@ const sections = [
   {
     title: 'What Are Recruitment Scams?',
     icon: <AlertTriangle className="text-amber-500" size={24} />,
-    content: 'Recruitment scams involve fraudulent job advertisements, fake offer letters, or demands for money under the guise of employment opportunities. Scammers may use emails, fake websites, social media platforms, or messaging apps to target job seekers by pretending to represent SHNOOR International.'
+    content: 'Recruitment scams involve fraudulent job advertisements, fake offer letters, or demands for money under the guise of employment opportunities. Scammers may use emails, fake websites, social media platforms, or messaging apps to target job seekers by pretending to represent JLB Groups.'
   },
   {
     title: 'How to Identify a Recruitment Scam?',
@@ -14,20 +14,20 @@ const sections = [
     content: 'Be alert if you notice any of the following red flags:',
     list: [
       'Requests for money, deposits, or processing fees in exchange for a job.',
-      'Unofficial communication from personal email accounts (e.g., Gmail, Yahoo, Hotmail) instead of our verified @shnoor.com domain.',
+      'Unofficial communication from personal email accounts (e.g., Gmail, Yahoo, Hotmail) instead of our verified @jlbgroups.com domain.',
       'Poorly written offer letters with suspicious formatting or spelling errors.',
       'Promises of guaranteed jobs without formal interviews.',
-      'Fake websites or social media pages claiming to be SHNOOR International.'
+      'Fake websites or social media pages claiming to be JLB Groups.'
     ]
   },
   {
     title: 'How We Protect Job Seekers',
     icon: <ShieldCheck className="text-accent" size={24} />,
-    content: 'At SHNOOR International, we take your security seriously:',
+    content: 'At JLB Groups, we take your security seriously:',
     list: [
       'We conduct all recruitment through our official website and verified communication channels.',
       'Offer letters are issued only on our official letterhead and signed by authorized personnel.',
-      'All job-related communication is shared from our official @shnoor.com domain email IDs.',
+      'All job-related communication is shared from our official @jlbgroups.com domain email IDs.',
       'We encourage applicants to verify the authenticity of any job offer by contacting us directly.'
     ]
   },
@@ -38,7 +38,7 @@ const sections = [
     list: [
       'Never share personal or financial details with unknown recruiters.',
       'Verify email addresses and websites before responding.',
-      'Report suspicious activity to SHNOOR International’s official contact channels.',
+      'Report suspicious activity to JLB Groups’s official contact channels.',
       'Always check with our HR Department before accepting any offer.'
     ]
   }
@@ -56,7 +56,7 @@ export default function RecruitmentScamsPage() {
               Recruitment Scams & Fraud Prevention
             </h1>
             <p className="text-textSecondary text-[15px] md:text-[16px] max-w-3xl mx-auto leading-relaxed">
-              At SHNOOR International, we are committed to maintaining the highest standards of transparency, trust, and ethical practices. We want to protect you from fraudulent individuals misusing our name to mislead job seekers.
+              At JLB Groups, we are committed to maintaining the highest standards of transparency, trust, and ethical practices. We want to protect you from fraudulent individuals misusing our name to mislead job seekers.
             </p>
           </motion.div>
         </div>
@@ -71,7 +71,7 @@ export default function RecruitmentScamsPage() {
               className="bg-red-50 border border-red-100 rounded-2xl p-6 md:p-8 text-center shadow-sm">
               <p className="text-red-800 font-heading font-bold text-[18px] mb-2">Important Notice</p>
               <p className="text-red-700 text-[15px] leading-relaxed">
-                SHNOOR International <strong>never charges job seekers any money</strong> for interviews, job applications, or placements.
+                JLB Groups <strong>never charges job seekers any money</strong> for interviews, job applications, or placements.
               </p>
             </motion.div>
 
@@ -115,10 +115,10 @@ export default function RecruitmentScamsPage() {
                 </div>
                 <h2 className="font-heading font-bold text-[24px] md:text-[28px] mb-4">Report Fraud</h2>
                 <p className="text-white/70 text-[15px] max-w-xl mx-auto mb-8">
-                  If you suspect a recruitment scam using the name of SHNOOR International, please contact us immediately. Together, we can fight recruitment fraud and ensure a safe experience.
+                  If you suspect a recruitment scam using the name of JLB Groups, please contact us immediately. Together, we can fight recruitment fraud and ensure a safe experience.
                 </p>
-                <a href="mailto:hr@shnoor.com" className="inline-flex items-center gap-2 bg-accent text-white px-8 py-3.5 rounded-xl font-bold transition-transform hover:scale-105 shadow-lg">
-                  hr@shnoor.com
+                <a href="mailto:hr@jlbgroups.com" className="inline-flex items-center gap-2 bg-accent text-white px-8 py-3.5 rounded-xl font-bold transition-transform hover:scale-105 shadow-lg">
+                  hr@jlbgroups.com
                 </a>
               </div>
             </motion.div>

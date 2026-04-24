@@ -11,14 +11,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 // GeoJSON for the world map (110m resolution for performance)
 const geoUrl = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'
 
-const hq = { name: 'Oman', flag: '🇴🇲', coordinates: [58.4, 23.6], isHQ: true }
+const hq = { name: 'USA', flag: '🇺🇸', coordinates: [-95.7, 37.1], isHQ: true }
 
 const locations = [
-  { name: 'UAE', flag: '🇦🇪', coordinates: [54.4, 24.5] },
-  { name: 'Bahrain', flag: '🇧🇭', coordinates: [50.6, 26.2] },
-  { name: 'Qatar', flag: '🇶🇦', coordinates: [51.2, 25.4] },
-  { name: 'India', flag: '🇮🇳', coordinates: [78.9, 20.6] },
-  { name: 'Malaysia', flag: '🇲🇾', coordinates: [102.0, 4.2] },
+  { name: 'Missouri', flag: '🇺🇸', coordinates: [-92.6, 38.3] },
+  { name: 'Odessa', flag: '🇺🇸', coordinates: [-93.9, 39.0] },
 ]
 
 export default function GeoTradeMap() {
@@ -34,7 +31,7 @@ export default function GeoTradeMap() {
         projection="geoEquirectangular"
         projectionConfig={{
           scale: 380,
-          center: [75, 18], // Center around the Middle East and South Asia
+          center: [-95, 38], // Center around USA
         }}
         className="w-full h-full"
       >
@@ -81,7 +78,7 @@ export default function GeoTradeMap() {
           </Line>
         ))}
 
-        {/* HQ Marker (Oman) */}
+        {/* HQ Marker (USA) */}
         <Marker coordinates={hq.coordinates as [number, number]}>
           <g className="cursor-pointer" onMouseEnter={() => setHovered(hq.name)} onMouseLeave={() => setHovered(null)}>
             <circle r={6} fill="#3FA26E" />

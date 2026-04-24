@@ -93,7 +93,7 @@ export default function CareersPage() {
                 Predict the Future by Creating It.
               </h1>
               <p className="text-textSecondary text-[15px] leading-relaxed mb-4">
-                Explore exciting Student opportunities at SHNOOR. We offer structured internships and live projects with a modern approach to technology and professional growth in roles like Gen AI, SAP, App Development, and Salesforce Development.
+                Explore exciting Student opportunities at JLB Groups. We offer structured internships and live projects with a modern approach to technology and professional growth in roles like Gen AI, SAP, App Development, and Salesforce Development.
               </p>
               <p className="text-textSecondary text-[15px] leading-relaxed mb-7 font-medium text-forest">
                 Duration: 3 Months · Stipend: 10K-12K · PPO: 6 LPA · Work From Home
@@ -102,7 +102,7 @@ export default function CareersPage() {
             </motion.div>
             <motion.div initial="hidden" animate="visible" variants={slideInRight} className="w-full lg:w-1/2">
               <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80&auto=format" alt="SHNOOR student opportunities" className="w-full h-[300px] md:h-[360px] object-cover" />
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80&auto=format" alt="JLB Groups student opportunities" className="w-full h-[300px] md:h-[360px] object-cover" />
               </div>
             </motion.div>
           </div>
@@ -163,7 +163,7 @@ export default function CareersPage() {
       <section className="py-16 lg:py-20 px-6 bg-cream/30">
         <div className="max-w-container mx-auto">
           <motion.div initial="hidden" whileInView="visible" variants={fadeUp} viewport={{ once: true }}>
-            <SectionHeader label="Our Mission" title="Shnoor Aims To" subtitle="We are committed to nurturing the next generation of technology leaders through structured learning and real-world project exposure." />
+            <SectionHeader label="Our Mission" title="JLB Groups Aims To" subtitle="We are committed to nurturing the next generation of technology leaders through structured learning and real-world project exposure." />
           </motion.div>
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
@@ -258,10 +258,10 @@ export default function CareersPage() {
               <h3 className="text-[#7c2d12] font-heading font-semibold text-[18px] mb-1.5 tracking-tight">Recruitment Scam Alert</h3>
               <div className="space-y-3">
                 <p className="text-[#92400e] text-[14px] leading-relaxed">
-                  At SHNOOR International LLC, integrity and transparency are at the heart of our recruitment process. We want to alert all job seekers that we <strong>never charge any fees</strong>, request payments, or ask for financial information at any stage of our hiring process.
+                  At JLB Groups, integrity and transparency are at the heart of our recruitment process. We want to alert all job seekers that we <strong>never charge any fees</strong>, request payments, or ask for financial information at any stage of our hiring process.
                 </p>
                 <p className="text-[#92400e] text-[14px] leading-relaxed">
-                  To protect against spam, ensure all official communication comes from <strong>@shnoor.com</strong>. If you receive any suspicious requests—via email, social media, or messaging apps—claiming to represent SHNOOR and requesting money, please treat it as a scam.
+                  To protect against spam, ensure all official communication comes from <strong>@jlbgroups.com</strong>. If you receive any suspicious requests—via email, social media, or messaging apps—claiming to represent JLB Groups and requesting money, please treat it as a scam.
                 </p>
               </div>
               <div className="mt-5">
@@ -278,8 +278,8 @@ export default function CareersPage() {
       <section className="py-12 px-6 mb-6">
         <div className="max-w-container mx-auto bg-white border border-border rounded-2xl px-8 py-7 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <p className="font-heading font-semibold text-forest text-[18px]">SHNOOR — Get the Future You Want!</p>
-            <p className="text-textSecondary text-[14px]">Send your resume to <a href="mailto:info@shnoor.com" className="text-accent font-medium">info@shnoor.com</a></p>
+            <p className="font-heading font-semibold text-forest text-[18px]">JLB Groups — Get the Future You Want!</p>
+            <p className="text-textSecondary text-[14px]">Send your resume to <a href="mailto:JLB@jlbgroups.com" className="text-accent font-medium">JLB@jlbgroups.com</a></p>
           </div>
           <Button href="https://docs.google.com/forms/d/e/1FAIpQLSd5AvoYS_aSxm-YY0zD-Af_VdAiZr9KJsIaOYvt0s-hcHK8Ig/viewform?usp=publish-editor" variant="accent" size="lg" withArrow>Apply Now</Button>
         </div>
