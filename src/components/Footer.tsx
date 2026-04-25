@@ -93,7 +93,7 @@ export default function Footer() {
               
               <li className="flex items-center gap-3 text-[14px] text-white/60 group">
                 <Mail size={18} className="shrink-0 text-accent" />
-                <a href="mailto:JLB@jlbgroups.com" className="hover:text-accent transition-colors duration-300 underline-offset-4 group-hover:underline">JLB@jlbgroups.com</a>
+                <a href="mailto:jlbgroupsofficial@gmail.com" className="hover:text-accent transition-colors duration-300 underline-offset-4 group-hover:underline">jlbgroupsofficial@gmail.com</a>
               </li>
               <li className="flex flex-col gap-2 text-[14px] text-white/60">
                 <div className="flex items-center gap-3">

@@ -39,7 +39,7 @@ export default function PrivacyPolicyPage() {
     },
     {
       title: 'Contact information:',
-      content: 'If you would like to contact us to understand more about this Policy or wish to contact us concerning any matter relating to individual rights and your Personal Information, you may send an email to JLB@jlbgroups.com.'
+      content: 'If you would like to contact us to understand more about this Policy or wish to contact us concerning any matter relating to individual rights and your Personal Information, you may send an email to jlbgroupsofficial@gmail.com.'
     }
   ]
 

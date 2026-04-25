@@ -43,7 +43,8 @@ export default function ContactPage() {
       phone: form.phone,
       inquiry_type: form.inquiryType,
       message: form.message,
-      to_name: 'JLB Groups Support'
+      to_name: 'JLB Groups Support',
+      to_email: 'jlbgroupsofficial@gmail.com'
     }
 
     try {
@@ -56,7 +57,7 @@ export default function ContactPage() {
       setSubmitted(true)
     } catch (err) {
       console.error('EmailJS Error:', err)
-      setServerError('Something went wrong. Please try again or email us directly at JLB@jlbgroups.com.')
+      setServerError('Something went wrong. Please try again or email us directly at jlbgroupsofficial@gmail.com.')
     } finally {
       setLoading(false)
     }
@@ -101,7 +102,7 @@ export default function ContactPage() {
                     <CheckCircle size={28} className="text-accent" />
                   </div>
                   <h3 className="font-heading font-semibold text-forest text-xl mb-2">Message Sent!</h3>
-                  <p className="text-textSecondary text-[14px]">Thank you. Our team will reach out shortly from <strong>JLB@jlbgroups.com</strong>.</p>
+                  <p className="text-textSecondary text-[14px]">Thank you. Our team will reach out shortly from <strong>jlbgroupsofficial@gmail.com</strong>.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate className="space-y-5">
@@ -182,7 +183,7 @@ export default function ContactPage() {
                   <Mail size={16} className="text-accent mt-0.5 shrink-0" />
                   <div>
                     <p className="font-medium text-textPrimary mb-0.5">Email</p>
-                    <a href="mailto:JLB@jlbgroups.com" className="text-textSecondary hover:text-accent transition-colors block">JLB@jlbgroups.com</a>
+                    <a href="mailto:jlbgroupsofficial@gmail.com" className="text-textSecondary hover:text-accent transition-colors block">jlbgroupsofficial@gmail.com</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 text-[13px]">
@@ -224,7 +225,7 @@ export default function ContactPage() {
             <div className="bg-forest rounded-2xl p-6">
               <h3 className="font-heading font-semibold text-white text-[15px] mb-2">Interested in Partnering?</h3>
               <p className="text-white/55 text-[13px] mb-4">Reach out to explore collaboration opportunities with JLB Groups.</p>
-              <a href="mailto:JLB@jlbgroups.com" className="text-accent text-[13px] font-semibold hover:underline">JLB@jlbgroups.com →</a>
+              <a href="mailto:jlbgroupsofficial@gmail.com" className="text-accent text-[13px] font-semibold hover:underline">jlbgroupsofficial@gmail.com →</a>
             </div>
           </motion.div>
         </div>

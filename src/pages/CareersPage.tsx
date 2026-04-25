@@ -261,7 +261,7 @@ export default function CareersPage() {
                   At JLB Groups, integrity and transparency are at the heart of our recruitment process. We want to alert all job seekers that we <strong>never charge any fees</strong>, request payments, or ask for financial information at any stage of our hiring process.
                 </p>
                 <p className="text-[#92400e] text-[14px] leading-relaxed">
-                  To protect against spam, ensure all official communication comes from <strong>@jlbgroups.com</strong>. If you receive any suspicious requests—via email, social media, or messaging apps—claiming to represent JLB Groups and requesting money, please treat it as a scam.
+                  To protect against spam, ensure all official communication comes from <strong>jlbgroupsofficial@gmail.com</strong>. If you receive any suspicious requests—via email, social media, or messaging apps—claiming to represent JLB Groups and requesting money, please treat it as a scam.
                 </p>
               </div>
               <div className="mt-5">
@@ -279,7 +279,7 @@ export default function CareersPage() {
         <div className="max-w-container mx-auto bg-white border border-border rounded-2xl px-8 py-7 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <p className="font-heading font-semibold text-forest text-[18px]">JLB Groups — Get the Future You Want!</p>
-            <p className="text-textSecondary text-[14px]">Send your resume to <a href="mailto:JLB@jlbgroups.com" className="text-accent font-medium">JLB@jlbgroups.com</a></p>
+            <p className="text-textSecondary text-[14px]">Send your resume to <a href="mailto:jlbgroupsofficial@gmail.com" className="text-accent font-medium">jlbgroupsofficial@gmail.com</a></p>
           </div>
           <Button href="https://docs.google.com/forms/d/e/1FAIpQLSd5AvoYS_aSxm-YY0zD-Af_VdAiZr9KJsIaOYvt0s-hcHK8Ig/viewform?usp=publish-editor" variant="accent" size="lg" withArrow>Apply Now</Button>
         </div>

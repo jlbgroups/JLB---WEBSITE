@@ -14,7 +14,7 @@ const sections = [
     content: 'Be alert if you notice any of the following red flags:',
     list: [
       'Requests for money, deposits, or processing fees in exchange for a job.',
-      'Unofficial communication from personal email accounts (e.g., Gmail, Yahoo, Hotmail) instead of our verified @jlbgroups.com domain.',
+      'Unofficial communication from suspicious personal email accounts instead of our official jlbgroupsofficial@gmail.com address.',
       'Poorly written offer letters with suspicious formatting or spelling errors.',
       'Promises of guaranteed jobs without formal interviews.',
       'Fake websites or social media pages claiming to be JLB Groups.'
@@ -27,7 +27,7 @@ const sections = [
     list: [
       'We conduct all recruitment through our official website and verified communication channels.',
       'Offer letters are issued only on our official letterhead and signed by authorized personnel.',
-      'All job-related communication is shared from our official @jlbgroups.com domain email IDs.',
+      'All job-related communication is shared from our official jlbgroupsofficial@gmail.com email ID.',
       'We encourage applicants to verify the authenticity of any job offer by contacting us directly.'
     ]
   },
@@ -117,8 +117,8 @@ export default function RecruitmentScamsPage() {
                 <p className="text-white/70 text-[15px] max-w-xl mx-auto mb-8">
                   If you suspect a recruitment scam using the name of JLB Groups, please contact us immediately. Together, we can fight recruitment fraud and ensure a safe experience.
                 </p>
-                <a href="mailto:hr@jlbgroups.com" className="inline-flex items-center gap-2 bg-accent text-white px-8 py-3.5 rounded-xl font-bold transition-transform hover:scale-105 shadow-lg">
-                  hr@jlbgroups.com
+                <a href="mailto:jlbgroupsofficial@gmail.com" className="inline-flex items-center gap-2 bg-accent text-white px-8 py-3.5 rounded-xl font-bold transition-transform hover:scale-105 shadow-lg">
+                  jlbgroupsofficial@gmail.com
                 </a>
               </div>
             </motion.div>

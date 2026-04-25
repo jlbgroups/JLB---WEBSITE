@@ -204,7 +204,7 @@ export default function ServicesPage() {
         <div className="max-w-container mx-auto text-center">
           <motion.div initial="hidden" whileInView="visible" variants={fadeUp} viewport={{ once: true }}>
             <h2 className="font-heading font-bold text-white text-[28px] md:text-[34px] tracking-tight mb-3">Not Sure Which Service You Need?</h2>
-            <p className="text-white/50 text-[15px] mb-8 max-w-lg mx-auto">Talk to our team. We'll assess your situation and recommend the right approach. Email us at <a href="mailto:JLB@jlbgroups.com" className="text-accent underline">JLB@jlbgroups.com</a></p>
+            <p className="text-white/50 text-[15px] mb-8 max-w-lg mx-auto">Talk to our team. We'll assess your situation and recommend the right approach. Email us at <a href="mailto:jlbgroupsofficial@gmail.com" className="text-accent underline">jlbgroupsofficial@gmail.com</a></p>
             <Button href="/contact" size="lg" variant="accent" withArrow>Get a Free Consultation</Button>
           </motion.div>
         </div>
