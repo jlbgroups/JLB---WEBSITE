@@ -44,15 +44,16 @@ export default function ContactPage() {
       inquiry_type: form.inquiryType,
       message: form.message,
       to_name: 'JLB Groups Support',
-      to_email: 'jlbgroupsofficial@gmail.com'
+      to_email: 'jlbgroupsofficial@gmail.com',
+      reply_to: form.email
     }
 
     try {
       await emailjs.send(
-        'service_sjuekow',
-        'template_soddjzy',
+        'service_cos7rbm',
+        'template_7exavzc',
         templateParams,
-        'cg99TKJrwPm_Qp0qv'
+        'QFhmqOJQm7vbRAqxt'
       )
       setSubmitted(true)
     } catch (err) {
